@@ -1,0 +1,18 @@
+<div class="ui menu">
+  {#list menus as menu}
+  <a class="item {state.is(menu.state)?'active':''}" href="#{menu.url}">
+    <i class="{menu.icon} icon"></i> {menu.name}
+  </a>
+  {/list}
+  <div class="right menu">
+    {#if !state.user}
+    <a class="ui item" href='#/'>
+      您好, 请 <span style="color: #912d2b">登录!</span>
+    </a>
+    {#else}
+    <a class="ui item" href="#/" on-click={this.logout()}>
+      欢迎, {state.user.full_name} <span style="color: #912d2b">退出!</span>
+    </a>
+    {/if}
+  </div>
+</div>

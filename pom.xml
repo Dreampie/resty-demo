@@ -1,0 +1,269 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cn.dreampie</groupId>
+  <artifactId>resty-demo</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>resty-demo Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>4.11</junit.version>
+    <servlet.version>3.1.0</servlet.version>
+    <fastjson.version>1.2.5</fastjson.version>
+    <resty.version>1.0-SNAPSHOT</resty.version>
+    <slf4j.version>1.7.7</slf4j.version>
+    <logback.version>1.1.2</logback.version>
+    <edb-java.version>0.1</edb-java.version>
+    <ehcache.version>2.6.6</ehcache.version>
+    <druid.version>1.0.13</druid.version>
+    <mysql.version>5.1.34</mysql.version>
+    <edb-java.version>0.1</edb-java.version>
+
+    <jquery.version>2.1.3</jquery.version>
+    <bootstrap.version>3.3.2-1</bootstrap.version>
+    <requirejs.version>2.1.16</requirejs.version>
+    <require-css.version>0.1.8-1</require-css.version>
+    <semantic-ui.version>1.8.1</semantic-ui.version>
+    <datepicker.version>1.4.0</datepicker.version>
+    <jquery-file-upload.version>9.8.1</jquery-file-upload.version>
+    <jedis.version>2.6.2</jedis.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${servlet.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>${fastjson.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>cn.dreampie</groupId>
+      <artifactId>resty-route</artifactId>
+      <version>${resty.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>cn.dreampie</groupId>
+      <artifactId>resty-orm-sql</artifactId>
+      <version>${resty.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>cn.dreampie</groupId>
+      <artifactId>resty-security</artifactId>
+      <version>${resty.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>cn.dreampie</groupId>
+      <artifactId>resty-upload</artifactId>
+      <version>${resty.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>cn.dreampie</groupId>
+      <artifactId>resty-client</artifactId>
+      <version>${resty.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>cn.dreampie</groupId>
+      <artifactId>resty-quartz</artifactId>
+      <version>${resty.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+
+    <!--<dependency>-->
+    <!--<groupId>redis.clients</groupId>-->
+    <!--<artifactId>jedis</artifactId>-->
+    <!--<version>${jedis.version}</version>-->
+    <!--</dependency>-->
+
+    <dependency>
+      <groupId>net.sf.ehcache</groupId>
+      <artifactId>ehcache-core</artifactId>
+      <version>${ehcache.version}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>slf4j-api</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>${druid.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-csv</artifactId>
+      <version>1.1</version>
+    </dependency>
+
+
+    <!--webjars-->
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>jquery</artifactId>
+      <version>${jquery.version}</version>
+    </dependency>
+    <!--ui-->
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>Semantic-UI</artifactId>
+      <version>${semantic-ui.version}</version>
+    </dependency>
+    <!--按需加载js-->
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>requirejs</artifactId>
+      <version>${requirejs.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>require-css</artifactId>
+      <version>${require-css.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>bootstrap-datepicker</artifactId>
+      <version>${datepicker.version}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>bootstrap</artifactId>
+          <groupId>org.webjars</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>jquery-file-upload</artifactId>
+      <version>${jquery-file-upload.version}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>jquery-ui</artifactId>
+          <groupId>org.webjars</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+  </dependencies>
+  <build>
+    <finalName>${project.name}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>cn.dreampie</groupId>
+        <artifactId>flyway-maven-plugin</artifactId>
+        <version>1.1</version>
+        <configuration>
+          <config>${basedir}/src/main/resources/application.properties</config>
+          <location>filesystem:${basedir}/src/main/resources/db/migration/</location>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>cn.dreampie</groupId>
+        <artifactId>coffeescript-maven-plugin</artifactId>
+        <version>1.1.1</version>
+        <configuration>
+          <sourceDirectory>${basedir}/src/main/webapp/coffee</sourceDirectory>
+          <outputDirectory>${basedir}/src/main/webapp/js</outputDirectory>
+          <compress>false</compress>
+          <args>
+            <arg>-bare</arg>
+          </args>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>cn.dreampie</groupId>
+        <artifactId>lesscss-maven-plugin</artifactId>
+        <version>1.1</version>
+        <configuration>
+          <sourceDirectory>${basedir}/src/main/webapp/less</sourceDirectory>
+          <outputDirectory>${basedir}/src/main/webapp/css</outputDirectory>
+          <compress>false</compress>
+          <!--<watchInThread>true</watchInThread>-->
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <warSourceExcludes>${basedir}/src/main/webapp/coffee/**</warSourceExcludes>
+          <warSourceExcludes>${basedir}/src/main/webapp/less/**</warSourceExcludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <uriEncoding>UTF-8</uriEncoding>
+          <port>8084</port>
+          <path>/</path>
+          <!-- 应用的部署位置 -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

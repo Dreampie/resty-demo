@@ -1,0 +1,23 @@
+<div class="ui large action input {searchState.loading?'loading':''} {searchState.error?'error':''}">
+  <input
+      style="{searchState.twice?'border-right: 1px solid rgba(0,0,0,.15);border-top-right-radius: .2857rem;border-bottom-right-radius: .2857rem;':''} {searchState.noSearch?'border-right: 1px solid rgba(0,0,0,.15) !important;border-radius: .2857rem !important;':''}"
+      type="text" ref="start" placeholder="Search start month..." readonly="readonly">
+  {#if searchState.twice}
+  &nbsp;&nbsp;<input style="border-top-left-radius: 0!important;border-bottom-left-radius: 0!important;" type="text"
+                     ref="end" placeholder="Search end month..."
+                     readonly="readonly">
+  {#if !searchState.noSearch}
+  <button class="ui icon button" on-click="{this.$emit('select', {start: start, end:end})}">
+    <i class="{searchState.icon?searchState.icon:'search'} icon"></i>
+  </button>
+  {/if}
+  {#else}
+  {#if !searchState.noSearch}
+  <button class="ui icon button" on-click="{this.$emit('select', start)}">
+    <i class="{searchState.icon?searchState.icon:'search'} icon"></i>
+  </button>
+  {/if}
+  {/if}
+</div>
+
+

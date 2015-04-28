@@ -1,0 +1,36 @@
+{#if total>0}
+<div class="ui pagination menu">
+  <a on-click={ this.nav(current-1)} class="icon item {current==1? 'disabled': ''}">
+    <i class="icon left arrow"></i>
+  </a>
+  {#if total - 5 > show * 2}
+  <a on-click={ this.nav(1)} class="{current==1?'active':''} item">
+    1
+  </a>
+  {#if begin > 2}
+  <div class="disabled item">
+    ...
+  </div>
+  {/if}
+  {#list begin..end as i}
+  <a on-click={ this.nav(i)} class="{current==i?'active':''} item">{i}</a>
+  {/list}
+
+  {#if (end < total-1)}
+  <div class="disabled item">
+    ...
+  </div>
+  {/if}
+  <a on-click={ this.nav(total)} class="{current==total?'active':''} item">
+    {total}
+  </a>
+  {#else}
+  {#list 1..total as i}
+  <a on-click={this.nav(i)} class="{current==i?'active':''} item">{i}</a>
+  {/list}
+  {/if}
+  <a on-click={ this.nav(current + 1)} class="icon item {current==total? 'disabled': ''}">
+    <i class="icon right arrow"></i>
+  </a>
+</div>
+{/if}

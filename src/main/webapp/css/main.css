@@ -1,0 +1,167 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  position: relative;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+}
+
+form legend {
+  display: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+
+blockquote,
+q {
+  quotes: "" "";
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  cursor: pointer;
+}
+
+body,
+html {
+  z-index: 0;
+  height: 100%;
+}
+
+.bodyer {
+  min-height: 100%;
+  position: relative;
+}
+
+.bodyer .header {
+  padding-bottom: 10px;
+}
+
+.bodyer .main {
+  padding-bottom: 76px;
+}
+
+.bodyer .footer {
+  width: 100%;
+  position: absolute;
+  padding: 10px 0;
+  bottom: 0;
+}
+
+.bodyer .footer .container {
+  text-align: center;
+}
+
+.bodyer .footer .container a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.bodyer .footer .container a:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.back-top {
+  display: none;
+  font-size: 30px;
+  position: fixed;
+  bottom: 50px;
+  right: 40px;
+  top: auto;
+  cursor: pointer;
+  z-index: 999;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.back-top:hover {
+  color: rgba(0, 0, 0, 0.8);
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+

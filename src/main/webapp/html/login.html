@@ -1,0 +1,43 @@
+<div class="ui form large segment login {ferror?'error':''}" style="margin: 0 auto;max-width: 1000px">
+  <div class="two fields">
+    <div class="required field">
+      <label>用户名</label>
+
+      <div class="ui icon input {uerror?'error':''}">
+        <input name="username" r-model="username" placeholder="Username" value="admin" type="text"
+               on-enter="{this.login(username,password,rememberMe)}">
+        <i class="user icon"></i>
+      </div>
+    </div>
+    <div class="required field">
+      <label>密码</label>
+
+      <div class="ui icon input {perror?'error':''}">
+        <input name="password" r-model="password" placeholder="Password" value="shengmu" type="password"
+               on-enter="{this.login(username,password,rememberMe)}">
+        <i class="lock icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="inline field">
+    <div class="ui checkbox toggle">
+      <input type="checkbox" id="rememberMe" name="rememberMe" r-model="rememberMe"
+             on-enter="{this.login(username,password,rememberMe)}">
+      <label for="rememberMe">记住密码</label>
+    </div>
+  </div>
+  <div class="ui submit button {loading?'loading':''}" on-click="{this.login(username,password,rememberMe)}"
+       on-enter="{this.login(username,password,rememberMe)}">登录
+  </div>
+  <div r-hide="!ferror" class="ui error message">
+    <ul class="list">
+      <li>用户名或密码错误!</li>
+    </ul>
+  </div>
+  <br/><br/>
+  <!--<div class="field">-->
+  <!--账号：admin/shengmu<br>-->
+  <!--框架：<a href="https://github.com/Dreampie/resty">Resty</a>-->
+  <!--</div>-->
+</div>
+

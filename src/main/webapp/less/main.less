@@ -1,0 +1,52 @@
+@import 'main/reset';
+@import 'main/mate';
+@import 'main/theme';
+
+// ----------------------- MAIN STYLES
+
+body, html {
+  z-index: 0;
+  height: 100%;
+}
+
+.bodyer {
+  min-height: 100%;
+  position: relative;
+  .header {
+    padding-bottom: 10px;
+  }
+  .main {
+    padding-bottom: 76px;
+  }
+  .footer {
+    width: 100%;
+    position: absolute;
+    padding: 10px 0;
+    bottom: 0;
+    .container {
+      text-align: center;
+      a {
+        color: rgba(0, 0, 0, 0.6);
+        &:hover {
+          color: rgba(0, 0, 0, 0.8);
+        }
+      }
+    }
+  }
+}
+
+.back-top {
+  display: none;
+  font-size: 30px;
+  position: fixed;
+  bottom: 50px;
+  right: 40px;
+  top: auto;
+  cursor: pointer;
+  z-index: 999;
+  color: rgba(0, 0, 0, 0.6);
+  &:hover {
+    color: rgba(0, 0, 0, 0.8);
+    .transition(all, 0.5s, ease);
+  }
+}

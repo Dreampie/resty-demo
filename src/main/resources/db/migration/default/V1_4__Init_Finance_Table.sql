@@ -1,0 +1,66 @@
+
+-- 对单文件表
+DROP TABLE IF EXISTS fun_order_file;
+CREATE TABLE fun_order_file (
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
+  shop_name  VARCHAR(100) DEFAULT NULL COMMENT '对单店铺名称',
+  shop_id  INT DEFAULT NULL COMMENT '对单店铺id',
+  path  VARCHAR(100) DEFAULT NULL COMMENT '文件存储路径',
+  type  VARCHAR(20) DEFAULT NULL COMMENT '文件类型',
+  created_at DATE DEFAULT NULL COMMENT '文件上传时间',
+  date INT DEFAULT NULL COMMENT '日期(年月)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='库存每月统计';
+
+-- 对单表
+DROP TABLE IF EXISTS fun_order_bill;
+CREATE TABLE fun_order_bill (
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
+  file_id BIGINT NOT NULL COMMENT '文件id',
+  shop_name  VARCHAR(100) DEFAULT NULL COMMENT '对单店铺名称',
+  shop_id  INT DEFAULT NULL COMMENT '对单店铺id',
+  code  VARCHAR(100) DEFAULT NULL COMMENT '订单号',
+  settle  INT DEFAULT NULL COMMENT '结算金额',
+  note VARCHAR(500) DEFAULT NULL COMMENT '备注',
+  diff_pay INT DEFAULT 0 COMMENT '对帐差异金额',
+  state INT DEFAULT 0 COMMENT '对单状态:0完全匹配,1订单号匹配,2不匹配',
+  date INT DEFAULT NULL COMMENT '日期(年月)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='库存每月统计';
+
+#赠品表
+DROP TABLE IF EXISTS fun_gift;
+CREATE TABLE fun_gift (
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
+  oid  VARCHAR(50) DEFAULT NULL COMMENT '单号',
+  storage_id INT DEFAULT NULL COMMENT '仓库编号',
+  storage_name  VARCHAR(50) DEFAULT NULL COMMENT '仓库名',
+  product_name  VARCHAR(100) DEFAULT NULL COMMENT '产品名',
+  bar_code  VARCHAR(100) DEFAULT NULL COMMENT '产品条码',
+  count INT DEFAULT NULL COMMENT '数量',
+  cost  INT DEFAULT NULL COMMENT '成本',
+  note VARCHAR(200) DEFAULT NULL COMMENT '备注',
+  date INT DEFAULT NULL COMMENT '日期(天)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='库存';
+
+#赠品每天统计表
+DROP TABLE IF EXISTS fun_gift_daily;
+CREATE TABLE fun_gift_daily (
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
+  product_name  VARCHAR(100) DEFAULT NULL COMMENT '产品名',
+  bar_code  VARCHAR(100) DEFAULT NULL COMMENT '产品条码',
+  out_count  INT DEFAULT NULL COMMENT '出库单数',
+  out_stock  INT DEFAULT NULL COMMENT '出库数量',
+  cost  INT DEFAULT NULL COMMENT '成本',
+  date INT DEFAULT NULL COMMENT '日期(天)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='库存每天统计';
+
+#赠品每月统计
+DROP TABLE IF EXISTS fun_gift_monthly;
+CREATE TABLE fun_gift_monthly (
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
+  product_name  VARCHAR(100) DEFAULT NULL COMMENT '产品名',
+  bar_code  VARCHAR(100) DEFAULT NULL COMMENT '产品条码',
+  out_count  INT DEFAULT NULL COMMENT '出库单数',
+  out_stock  INT DEFAULT NULL COMMENT '出库数量',
+  cost  INT DEFAULT NULL COMMENT '成本',
+  date INT DEFAULT NULL COMMENT '日期(年月)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='库存每月统计';

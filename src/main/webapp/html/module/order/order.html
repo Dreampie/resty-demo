@@ -1,0 +1,71 @@
+<div class="ui pointing secondary menu order">
+  <a class="item {o_tab.first?'active':''}">全部订单</a>
+</div>
+
+<div class="ui bottom attached tab segment {o_tab.first?'active':''}">
+  <h1 class="ui header">全部订单<span style="margin-left: 100px;">{orders.start} - {orders.end}</span></h1>
+
+  <div class="ui large compact menu"
+       style="margin-top: -4px;border:1px solid rgba(0,0,0,.15);box-shadow:none;{searchOrder.serror?'background-color: #fff0f0;border-color: #dbb1b1;color: #d95c5c;':''}">
+    <div class="ui simple dropdown item">
+      {orderShopName?orderShopName:'请选择店铺'}
+      <i class="dropdown icon"></i>
+
+      <div class="menu">
+        {#list shops as shop}
+        <div class="item" on-click="{this.selectOrderShop(shop)}">{shop.name}</div>
+        {/list}
+      </div>
+    </div>
+  </div>
+
+  <div class="ui large compact menu"
+       style="margin-top: -4px;border:1px solid rgba(0,0,0,.15);box-shadow:none;{searchOrder.serror?'background-color: #fff0f0;border-color: #dbb1b1;color: #d95c5c;':''}">
+    <div class="ui simple dropdown item">
+      {orderStateName?orderStateName:'请选择对单状态'}
+      <i class="dropdown icon"></i>
+
+      <div class="menu">
+        {#list states as state}
+        <div class="item" on-click="{this.selectOrderState(state)}">{state.name}</div>
+        {/list}
+      </div>
+    </div>
+  </div>
+
+  <div class="ui input large"><input r-model="orderCode" value="" placeholder="订单号"></div>
+
+  <app-datepicker ref="datepicker" state={@(this.$state)} config="{config}" searchState={searchOrder}
+                  on-select={this.searchOrder($event)}></app-datepicker>
+  <a class="ui button large right floated" tabindex="0" on-click="{this.export('#searchOrder','订单.csv',$event)}">
+    导出
+  </a>
+  <table id="searchOrder" class="ui celled table">
+    <thead>
+    <tr>
+      {#list order_items as item}
+      <th>{item}</th>
+      {/list}
+    </tr>
+    </thead>
+    <tbody>
+    {#list orders.data.list as order}
+    <tr>
+      <td>{order.point.shop_name}</td>
+      <td>{order.code}</td>
+      <td>{order.name}</td>
+      <td>{order.mobil_phone}</td>
+      <td>{this.formatNum(order.total_pay,2)}</td>
+      <td>
+        {#list order.products as product}
+        {this.formatProduct(product)} <br/>
+        {/list}
+      </td>
+      <td>{order.date}</td>
+      <td>{this.formatState(order.state)}</td>
+    </tr>
+    {/list}
+    </tbody>
+  </table>
+  <pager total={orders.data.totalPage} current={orders.data.pageNumber} on-nav={this.refresh($event.page)}></pager>
+</div>

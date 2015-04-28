@@ -1,0 +1,176 @@
+<div class="ui pointing secondary menu setting">
+  <a class="item {s_tab.first?'active':''}" on-click="{this.active('first')}">成本维护</a>
+  <a class="item {s_tab.second?'active':''}" on-click="{this.active('second')}">用户列表</a>
+  <a class="item {s_tab.third?'active':''}" on-click="{this.active('third')}">统计任务</a>
+</div>
+
+<div class="ui bottom attached tab segment {s_tab.first?'active':''}">
+  <h1 class="ui header">产品成本维护</h1>
+
+  <a class="ui button large right floated" tabindex="0" on-click="{this.export('#products','成本.csv',$event)}"
+     style="margin-bottom: 10px;">
+    导出
+  </a>
+
+  <a class="ui button large right floated" tabindex="0" on-click="{newP=true}" style="margin-bottom: 10px;">
+    新建
+  </a>
+
+  <table id="products" class="ui celled table">
+    <thead>
+    <tr>
+      {#list product_items as item}
+      <th>{item}</th>
+      {/list}
+      <th csv="false">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr csv="false" r-hide="!newP">
+      <td>0</td>
+      <td>
+        <div class="ui input {newPNerror?'error':''}"><input r-model="newPName" value="" placeholder="名字"></div>
+      </td>
+      <td>
+        <div class="ui input {newPBerror?'error':''}"><input r-model="newPBarCode" value="" placeholder="编码"></div>
+      </td>
+      <td>
+        <div class="ui input {newPCerror?'error':''}"><input r-model="newPCost" value="" placeholder="整数,分"></div>
+      </td>
+      <td>
+        <div class="ui input {newPDerror?'error':''}"><input r-model="newPDate" placeholder="yyyy-MM-dd HH:mm:ss"
+                                                             value=""></div>
+      </td>
+      <td>
+        <a href="javascript:void(0);" on-click="{this.new()}">保存</a>
+        <a href="javascript:void(0);" on-click="{newP=false}">取消</a>
+      </td>
+    </tr>
+    {#list products as product}
+
+    <tr style="display: none">
+      <td>{product_index+1}</td>
+      <td>{product.name}</td>
+      <td>{product.bar_code}</td>
+      <td>{this.formatNum(product.cost,2)}</td>
+      <td>{this.formatDate(product.date)}</td>
+    </tr>
+
+    <tr csv="false">
+      <td>{product_index+1}</td>
+      <td>
+        <div r-hide="updateP[product_index]">{product.name}</div>
+        <div r-hide="!updateP[product_index]" class="ui input"><input r-model="pName[product_index]"
+                                                                      value="{product.name}"></div>
+      </td>
+      <td>
+        <div r-hide="updateP[product_index]">{product.bar_code}</div>
+        <div r-hide="!updateP[product_index]" class="ui input"><input r-model="pBarCode[product_index]"
+                                                                      value="{product.bar_code}"></div>
+      </td>
+      <td>
+        <div r-hide="updateP[product_index]">{this.formatNum(product.cost,2)}</div>
+        <div r-hide="!updateP[product_index]" class="ui input {cerror[product_index]?'error':''}"><input
+            r-model="pCost[product_index]" value="{product.cost}"></div>
+      </td>
+      <td>
+        <div r-hide="updateP[product_index]">{this.formatDate(product.date)}</div>
+        <div r-hide="!updateP[product_index]" class="ui input {derror[product_index]?'error':''}"><input
+            r-model="pDate[product_index]" placeholder="yyyy-MM-dd HH:mm:ss" value="{this.formatDate(product.date)}">
+        </div>
+      </td>
+      <td><a r-hide="updateP[product_index]" href="javascript:void(0);" on-click="{updateP[product_index]=true}">修改</a>
+        <a r-hide="!updateP[product_index]" href="javascript:void(0);" on-click="{this.update(product_index)}">保存</a>
+        <a r-hide="!updateP[product_index]" href="javascript:void(0);" on-click="{updateP[product_index]=false}">取消</a>
+      </td>
+    </tr>
+    {/list}
+    </tbody>
+  </table>
+
+</div>
+
+
+<div class="ui bottom attached tab segment {s_tab.second?'active':''}">
+  <h1 class="ui header">用户列表</h1>
+
+  <a class="ui button large right floated" tabindex="0" on-click="{this.export('#users','用户.csv',$event)}"
+     style="margin-bottom: 10px;">
+    导出
+  </a>
+
+  <table id="users" class="ui celled table">
+    <thead>
+    <tr>
+      {#list user_items as item}
+      <th>{item}</th>
+      {/list}
+    </tr>
+    </thead>
+    <tbody>
+    {#list users as user}
+    <tr>
+      <td>{user_index+1}</td>
+      <td>{user.username}</td>
+      <td>{user.full_name}</td>
+      <td>{user.mobile}</td>
+      <td>{user.permissions}</td>
+      <td>{this.formatDate(user.created_at)}</td>
+    </tr>
+    {/list}
+    </tbody>
+  </table>
+
+
+</div>
+
+<div class="ui bottom attached tab segment {s_tab.third?'active':''}">
+  <h1 class="ui header">启动统计任务</h1>
+
+  <div class="ui form" style="margin-bottom: 10px">
+    <div class="grouped inline fields">
+      <div class="field">
+        <div class="ui checkbox">
+          <input type="checkbox" id="edb" r-model="edb">
+          <label for="edb">是否从E店宝抓取以下数据：</label>
+        </div>
+      </div>
+      <br/>
+      <br/>
+
+      <div class="field">
+        <div class="ui checkbox">
+          <input type="checkbox" id="order" r-model="order">
+          <label for="order">订单统计</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui checkbox">
+          <input type="checkbox" id="store" r-model="store">
+          <label for="store">库存统计</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui checkbox">
+          <input type="checkbox" id="gift" r-model="gift">
+          <label for="gift">赠品统计</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-datepicker state={@(this.$state)} config="{config}" searchState={sState}
+                  on-select={this.job($event)}></app-datepicker>
+
+  <div r-hide="!rep.success" class="ui positive message">
+    <ul class="list">
+      <li>任务启动成功，正在后台执行!</li>
+    </ul>
+  </div>
+  <div r-hide="!rep.error" class="ui error message">
+    <ul class="list">
+      <li>任务启动失败!</li>
+    </ul>
+  </div>
+
+</div>

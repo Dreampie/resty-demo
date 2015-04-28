@@ -1,0 +1,217 @@
+<div class="ui pointing secondary menu setting">
+  <a class="item {f_tab.first?'active':''}" on-click="{this.active('first')}">产品月销售报表</a>
+  <a class="item {f_tab.second?'active':''}" on-click="{this.active('second')}">赠品月报表</a>
+  <a class="item {f_tab.third?'active':''}" on-click="{this.active('third')}">月对单报表</a>
+  <a class="item {f_tab.four?'active':''}" on-click="{this.active('four')}">上传对单文件</a>
+</div>
+
+<div class="ui bottom attached tab segment {f_tab.first?'active':''}">
+  <h1 class="ui header">产品月销售总报表<span style="margin-left: 100px;">{products.month}</span></h1>
+
+  <app-datepicker state={@(this.$state)} config="{config}" searchState={productState}
+                  on-select={this.product($event)}></app-datepicker>
+  <a class="ui button large right floated" tabindex="0" on-click="{this.export('#products','产品月销售总报表.csv',$event)}">
+    导出
+  </a>
+  <table id="products" class="ui celled table">
+    <thead>
+    <tr>
+      <th>序号</th>
+      {#list product_items as item}
+      <th>{item}</th>
+      {/list}
+    </tr>
+    </thead>
+    <tbody>
+    {#list products.data as product}
+    <tr>
+      <td>{product_index+1}</td>
+      <td>{product.product_name}</td>
+      <td>{product.bar_code}</td>
+      <td>{this.formatNum(product.product_price,2)}</td>
+      <td>{product.count}</td>
+      <td>{this.formatNum(product.total_pay,2)}</td>
+    </tr>
+    {/list}
+    </tbody>
+  </table>
+
+</div>
+
+<div class="ui bottom attached tab segment {f_tab.second?'active':''}">
+  <h1 class="ui header">产品月销售总报表<span style="margin-left: 100px;">{products.month}</span></h1>
+
+  <app-datepicker state={@(this.$state)} config="{config}" searchState={giftState}
+                  on-select={this.gift($event)}></app-datepicker>
+  <a class="ui button large right floated" tabindex="0" on-click="{this.export('#gifts','赠品月总报表.csv',$event)}">
+    导出
+  </a>
+  <table id="gifts" class="ui celled table">
+    <thead>
+    <tr>
+      <th>序号</th>
+      {#list gift_items as item}
+      <th>{item}</th>
+      {/list}
+    </tr>
+    </thead>
+    <tbody>
+    {#list gifts.data as gift}
+    <tr>
+      <td>{gift_index+1}</td>
+      <td>{gift.product_name}</td>
+      <td>{gift.bar_code}</td>
+      <td>{gift.out_count}</td>
+      <td>{gift.out_stock}</td>
+      <td>{this.formatNum(gift.cost,2)}</td>
+      <td>{this.formatNum(gift.cost*gift.out_stock,2)}</td>
+    </tr>
+    {/list}
+    </tbody>
+  </table>
+
+</div>
+
+<div class="ui bottom attached tab segment {f_tab.third?'active':''}">
+  <h1 class="ui header">月对单总报表<span style="margin-left: 100px;">{bills.month}</span></h1>
+
+
+  <div class="ui large compact menu"
+       style="margin-top: -4px;border:1px solid rgba(0,0,0,.15);box-shadow:none;{billState.serror?'background-color: #fff0f0;border-color: #dbb1b1;color: #d95c5c;':''}">
+    <div class="ui simple dropdown item">
+      {billShopName?billShopName:'请选择店铺'}
+      <i class="dropdown icon"></i>
+
+      <div class="menu">
+        {#list shops as shop}
+        <div class="item" on-click="{this.selectBillShop(shop)}">{shop.name}</div>
+        {/list}
+      </div>
+    </div>
+  </div>
+
+  <div class="ui large compact menu"
+       style="margin-top: -4px;border:1px solid rgba(0,0,0,.15);box-shadow:none;{billState.sterror?'background-color: #fff0f0;border-color: #dbb1b1;color: #d95c5c;':''}">
+    <div class="ui simple dropdown item">
+      {billStateName?billStateName:'请选择对单状态'}
+      <i class="dropdown icon"></i>
+
+      <div class="menu">
+        {#list states as state}
+        <div class="item" on-click="{this.selectBillState(state)}">{state.name}</div>
+        {/list}
+      </div>
+    </div>
+  </div>
+
+  <app-datepicker ref="billDatepicker" state={@(this.$state)} config="{config}" searchState={billState}
+                  on-select={this.bill($event)}></app-datepicker>
+  <a class="ui button large right floated" tabindex="0" on-click="{this.export('#bills','月对单总报表.csv',$event)}">
+    导出
+  </a>
+
+  <table id="bills" class="ui celled table">
+    <thead>
+    <tr>
+      <th>序号</th>
+      {#list bill_items as item}
+      <th>{item}</th>
+      {/list}
+    </tr>
+    </thead>
+    <tbody>
+    {#list bills.data.list as bill}
+    <tr>
+      <td>{bill_index+1}</td>
+      <td>{bill.shop_name}</td>
+      <td>{bill.code}</td>
+      <td>{this.formatNum(bill.settle,2)}</td>
+      <td>
+        {#if bill.diff_pay>0 }
+        <span style="color: green">{this.formatDiff(bill.diff_pay,2)}</span>
+        {#elseif bill.diff_pay<0}
+        <span style="color: red">{this.formatDiff(bill.diff_pay,2)}</span>
+        {/if}
+      </td>
+      <td>{bill.note}</td>
+      <td>{this.formatState(bill.state)}</td>
+    </tr>
+    {/list}
+    </tbody>
+  </table>
+  <pager total={bills.data.totalPage} current={bills.data.pageNumber} on-nav={this.refresh($event.page)}></pager>
+</div>
+
+
+<div class="ui bottom attached tab segment {f_tab.four?'active':''}">
+  <h1 class="ui header">对单文件管理<span style="margin-left: 100px;">{bills.month}</span></h1>
+
+  <app-datepicker state={@(this.$state)} config="{config}" searchState={fileState}
+                  on-select={this.file($event)}></app-datepicker>
+
+  <div style="float:right;margin-right:0;margin-left:.25em;" on-click="{filemodal=!filemodal}">
+    <label class="ui large icon button">
+      <i class="file icon"></i>文件上传</label>
+  </div>
+
+  <div r-hide="!filemodal" style="margin: 0;float: right;">
+
+    <div class="ui large compact menu"
+         style="margin-top: -4px;border:1px solid rgba(0,0,0,.15);box-shadow:none;{fileState.serror?'background-color: #fff0f0;border-color: #dbb1b1;color: #d95c5c;':''}">
+      <div class="ui simple dropdown item">
+        {fileShopName?fileShopName:'请选择店铺'}
+        <i class="dropdown icon"></i>
+
+        <div class="menu">
+          {#list shops as shop}
+          <div class="item" on-click="{this.selectFileShop(shop)}">{shop.name}</div>
+          {/list}
+        </div>
+      </div>
+    </div>
+
+
+    <app-datepicker state={@(this.$state)} config="{config}" searchState={uploadState}
+                    on-change={this.selectFileMonth($event)}></app-datepicker>
+
+    <div style="margin-right:0;margin-left:.25em;display: inline-block;" on-click="{this.upload()}">
+      <label for="fileupload" class="ui icon button large {fileState.loading?'loading':''}">
+        <i class="file icon"></i>选择文件</label>
+      <input ref="fileupload" name="file" type="file" id="fileupload" style="display:none"/>
+    </div>
+
+    <div r-hide="!rep.success" class="ui positive message">
+      <ul class="list">
+        <li>文件解析成功!</li>
+      </ul>
+    </div>
+    <div r-hide="!rep.error" class="ui error message">
+      <ul class="list">
+        <li>文件上传失败!</li>
+      </ul>
+    </div>
+  </div>
+
+  <table id="files" class="ui celled table">
+    <thead>
+    <tr>
+      <th>序号</th>
+      {#list file_items as item}
+      <th>{item}</th>
+      {/list}
+    </tr>
+    </thead>
+    <tbody>
+    {#list files.data as file}
+    <tr>
+      <td>{file_index+1}</td>
+      <td>{file.shop_name}</td>
+      <td>{file.path}</td>
+      <td>{file.type}</td>
+      <td>{file.created_at}</td>
+      <!--<td><a href="javascript:void(0);" on-click="{this.del(file.id)}">删除</a></td>-->
+    </tr>
+    {/list}
+    </tbody>
+  </table>
+</div>
