@@ -4,7 +4,7 @@ Resty-demo 是以Resty作为服务端接口，regularjs作为前端构建的交�
 <a href="https://github.com/Dreampie/Resty" target="_blank">Resty</a>   <a href="http://dreampie.gitbooks.io/resty-chs/content/index.html" target="_blank">开发文档</a>    <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=8fc9498714ebbc3675cc5a5035858004154ef4645ebc9c128dfd76688d32179b"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="极简Restful框架 - Resty" title="极简Restful框架 - Resty"></a>
 
 界面使用semantic ui:
-
+ ![image](https://github.com/Dreampie/resty-demo/master/src/main/webapp/image/demo/index.png)
 
 
 
