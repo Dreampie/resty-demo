@@ -24,7 +24,7 @@ public class AppConfig extends Config {
 
   public void configPlugin(PluginLoader pluginLoader) {
     DruidDataSourceProvider ddsp = new DruidDataSourceProvider("default");
-    ActiveRecordPlugin activeRecordPlugin = new ActiveRecordPlugin(ddsp, true);
+    ActiveRecordPlugin activeRecordPlugin = new ActiveRecordPlugin(ddsp);
     activeRecordPlugin.addIncludePackages("cn.dreampie.resource");
 
     pluginLoader.add(activeRecordPlugin);
