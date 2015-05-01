@@ -1,5 +1,5 @@
-(function () {
-  define(['regularjs', 'rgl!/html/module/setting/setting.html', '/js/http.js', '/js/plugin/app/datepicker.js', '/js/plugin/app/dateformat.js'], function (Regular, tpl, $http) {
+(function() {
+  define(['regularjs', 'rgl!/html/module/setting/setting.html', '/js/http.js', '/js/plugin/app/datepicker.js', '/js/plugin/app/dateformat.js'], function(Regular, tpl, $http) {
     return Regular.extend({
       template: tpl,
       data: {
@@ -36,7 +36,7 @@
           error: false
         }
       },
-      active: function (tab) {
+      active: function(tab) {
         var component;
         component = this;
         switch (tab) {
@@ -60,41 +60,39 @@
             };
         }
       },
-      init: function () {
+      init: function() {
         var component;
         component = this;
         component.product();
         return component.user();
       },
-      product: function () {
+      product: function() {
         var component;
         component = this;
-        return $http.get('/api/v1.0/settings/products', function (rep) {
+        return $http.get('/api/v1.0/settings/products', function(rep) {
           if (rep) {
             component.data.products = rep;
             return component.$update();
           }
         });
       },
-      user: function () {
+      user: function() {
         var component;
         component = this;
-        return $http.get('/api/v1.0/users', function (rep) {
+        return $http.get('/api/v1.0/users', function(rep) {
           if (rep) {
             component.data.users = rep;
             return component.$update();
           }
         });
       },
-      "new": function () {
+      "new": function() {
         var component, newPBarCode, newPCost, newPDate, newPName, param, s;
         component = this;
         s = false;
-        param = {
-          product: {}
-        };
         newPName = component.data.newPName;
-        param.product.name = newPName;
+        param = {};
+        param.name = newPName;
         if (newPName && newPName !== "") {
           s = true;
           component.data.newPNerror = false;
@@ -103,7 +101,7 @@
           component.data.newPNerror = true;
         }
         newPBarCode = component.data.newPBarCode;
-        param.product.bar_code = newPBarCode;
+        param.bar_code = newPBarCode;
         if (newPBarCode && newPBarCode !== "") {
           s = true;
           component.data.newPBerror = false;
@@ -112,7 +110,7 @@
           component.data.newPBerror = true;
         }
         newPCost = component.data.newPCost;
-        param.product.cost = newPCost;
+        param.cost = newPCost;
         if (newPCost && !isNaN(newPCost) && newPCost !== "") {
           s = true;
           component.data.newPCerror = false;
@@ -121,7 +119,7 @@
           component.data.newPCerror = true;
         }
         newPDate = component.data.newPDate;
-        param.product.date = newPDate;
+        param.date = newPDate;
         if (newPDate && newPDate.match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}/)) {
           s = true;
           component.data.newPDerror = false;
@@ -130,7 +128,7 @@
           component.data.newPDerror = true;
         }
         if (s) {
-          return $http.post('/api/v1.0/settings/products', param, function (rep) {
+          return $http.post('/api/v1.0/settings/products', param, function(rep) {
             if (rep) {
               component.data.products = rep;
               component.data.newP = false;
@@ -139,21 +137,19 @@
           });
         }
       },
-      update: function (index) {
+      update: function(index) {
         var barCode, component, cost, date, name, oldP, param, u;
         component = this;
         oldP = component.data.products[index];
         u = false;
-        param = {
-          product: {}
-        };
         name = component.data.pName[index];
-        param.product.name = name;
+        param = {};
+        param.name = name;
         if (name && oldP.name !== name && name !== "") {
           u = true;
         }
         barCode = component.data.pBarCode[index];
-        param.product.bar_code = barCode;
+        param.bar_code = barCode;
         if (barCode && oldP.bar_code !== barCode && barCode !== "") {
           u = true;
         }
@@ -163,7 +159,7 @@
           return;
         } else {
           component.data.cerror[index] = false;
-          param.product.cost = cost;
+          param.cost = cost;
           if (oldP.cost !== Number(cost)) {
             u = true;
           }
@@ -171,7 +167,7 @@
         date = component.data.pDate[index];
         if (date && date.match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}/)) {
           component.data.derror[index] = false;
-          param.product.date = date;
+          param.date = date;
           if (oldP.date !== date) {
             u = true;
           }
@@ -179,7 +175,7 @@
           u = false;
         }
         if (u) {
-          return $http.post('/api/v1.0/settings/products', param, function (rep) {
+          return $http.post('/api/v1.0/settings/products', param, function(rep) {
             if (rep) {
               component.data.products = rep;
               component.data.updateP[index] = false;
@@ -188,7 +184,7 @@
           });
         }
       },
-      job: function (date) {
+      job: function(date) {
         var component, param;
         component = this;
         if (date.start && date.end && date.start <= date.end) {
@@ -204,7 +200,7 @@
           };
           if (param.edb || param.order || param.store || param.gift) {
             component.data.cerror = false;
-            return $http.put('/api/v1.0/settings/repick', param, function (rep) {
+            return $http.put('/api/v1.0/settings/repick', param, function(rep) {
               if (rep) {
                 component.data.rep = {
                   success: true,
@@ -226,10 +222,10 @@
           return component.data.sState.error = true;
         }
       },
-      formatNum: function (number, digit) {
+      formatNum: function(number, digit) {
         return String(Number(number / 100).toFixed(digit));
       },
-      formatDate: function (date) {
+      formatDate: function(date) {
         if (!isNaN(date)) {
           return new Date(date).format("yyyy-MM-dd HH:mm");
         } else {
@@ -240,7 +236,7 @@
           }
         }
       },
-      "export": function (sel, name, $event) {
+      "export": function(sel, name, $event) {
         return $($event.target).table2csv(sel, name);
       }
     });

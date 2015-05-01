@@ -54,9 +54,9 @@ define ['regularjs', 'rgl!/html/module/setting/setting.html', '/js/http.js', '/j
     new: ->
       component = this
       s= false
-      param={product: {}}
       newPName= component.data.newPName
-      param.product.name = newPName
+      param={}
+      param.name = newPName
       if newPName && newPName != ""
         s = true
         component.data.newPNerror = false
@@ -64,7 +64,7 @@ define ['regularjs', 'rgl!/html/module/setting/setting.html', '/js/http.js', '/j
         s = false
         component.data.newPNerror = true
       newPBarCode= component.data.newPBarCode
-      param.product.bar_code = newPBarCode
+      param.bar_code = newPBarCode
       if newPBarCode && newPBarCode != ""
         s = true
         component.data.newPBerror = false
@@ -73,7 +73,7 @@ define ['regularjs', 'rgl!/html/module/setting/setting.html', '/js/http.js', '/j
         component.data.newPBerror = true
 
       newPCost= component.data.newPCost
-      param.product.cost = newPCost
+      param.cost = newPCost
       if newPCost && !isNaN(newPCost) && newPCost != ""
         s = true
         component.data.newPCerror = false
@@ -82,7 +82,7 @@ define ['regularjs', 'rgl!/html/module/setting/setting.html', '/js/http.js', '/j
         component.data.newPCerror = true
 
       newPDate=  component.data.newPDate
-      param.product.date = newPDate
+      param.date = newPDate
       if newPDate && newPDate.match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}/)
         s = true
         component.data.newPDerror = false
@@ -103,14 +103,14 @@ define ['regularjs', 'rgl!/html/module/setting/setting.html', '/js/http.js', '/j
       component = this
       oldP=component.data.products[index]
       u=false
-      param={product: {}}
       name= component.data.pName[index]
-      param.product.name = name
+      param={}
+      param.name = name
       if name && oldP.name != name && name != ""
         u = true
 
       barCode= component.data.pBarCode[index]
-      param.product.bar_code = barCode
+      param.bar_code = barCode
       if barCode && oldP.bar_code != barCode && barCode != ""
         u = true
 
@@ -120,14 +120,14 @@ define ['regularjs', 'rgl!/html/module/setting/setting.html', '/js/http.js', '/j
         return
       else
         component.data.cerror[index] = false
-        param.product.cost = cost
+        param.cost = cost
         if oldP.cost != Number(cost)
           u = true
 
       date=component.data.pDate[index]
       if date && date.match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}/)
         component.data.derror[index] = false
-        param.product.date = date
+        param.date = date
         if oldP.date != date
           u = true
       else
