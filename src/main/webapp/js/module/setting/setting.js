@@ -90,9 +90,11 @@
         var component, newPBarCode, newPCost, newPDate, newPName, param, s;
         component = this;
         s = false;
+        param = {
+          product: {}
+        };
         newPName = component.data.newPName;
-        param = {};
-        param.name = newPName;
+        param.product.name = newPName;
         if (newPName && newPName !== "") {
           s = true;
           component.data.newPNerror = false;
@@ -101,7 +103,7 @@
           component.data.newPNerror = true;
         }
         newPBarCode = component.data.newPBarCode;
-        param.bar_code = newPBarCode;
+        param.product.bar_code = newPBarCode;
         if (newPBarCode && newPBarCode !== "") {
           s = true;
           component.data.newPBerror = false;
@@ -110,7 +112,7 @@
           component.data.newPBerror = true;
         }
         newPCost = component.data.newPCost;
-        param.cost = newPCost;
+        param.product.cost = newPCost;
         if (newPCost && !isNaN(newPCost) && newPCost !== "") {
           s = true;
           component.data.newPCerror = false;
@@ -119,7 +121,7 @@
           component.data.newPCerror = true;
         }
         newPDate = component.data.newPDate;
-        param.date = newPDate;
+        param.product.date = newPDate;
         if (newPDate && newPDate.match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}/)) {
           s = true;
           component.data.newPDerror = false;
@@ -142,14 +144,16 @@
         component = this;
         oldP = component.data.products[index];
         u = false;
+        param = {
+          product: {}
+        };
         name = component.data.pName[index];
-        param = {};
-        param.name = name;
+        param.product.name = name;
         if (name && oldP.name !== name && name !== "") {
           u = true;
         }
         barCode = component.data.pBarCode[index];
-        param.bar_code = barCode;
+        param.product.bar_code = barCode;
         if (barCode && oldP.bar_code !== barCode && barCode !== "") {
           u = true;
         }
@@ -159,7 +163,7 @@
           return;
         } else {
           component.data.cerror[index] = false;
-          param.cost = cost;
+          param.product.cost = cost;
           if (oldP.cost !== Number(cost)) {
             u = true;
           }
@@ -167,7 +171,7 @@
         date = component.data.pDate[index];
         if (date && date.match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}/)) {
           component.data.derror[index] = false;
-          param.date = date;
+          param.product.date = date;
           if (oldP.date !== date) {
             u = true;
           }

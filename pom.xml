@@ -74,7 +74,7 @@
 
     <dependency>
       <groupId>cn.dreampie</groupId>
-      <artifactId>resty-orm-sql</artifactId>
+      <artifactId>resty-orm</artifactId>
       <version>${resty.version}</version>
     </dependency>
 
