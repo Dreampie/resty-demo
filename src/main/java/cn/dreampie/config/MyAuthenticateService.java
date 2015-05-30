@@ -13,23 +13,23 @@ import java.util.Set;
 /**
  * Created by ice on 15-1-7.
  */
-public class MyAuthenticateService implements AuthenticateService {
+public class MyAuthenticateService extends AuthenticateService {
 
 
-  public Principal findByUsername(String username) {
+  public Principal getPrincipal(String username) {
     User user = User.dao.findFirstBy("username=? AND deleted_at is null", username);
     if (user != null)
-      return new Principal<User>(username, user.getStr("password"), user.getPermissions(), user);
+      return new Principal<User>(username, user.<String>get("password"), user.getPermissions(), user);
     else
       return null;
   }
 
-  public Set<Credential> loadAllCredentials() {
+  public Set<Credential> getAllCredentials() {
     List<Permission> permissions = Permission.dao.findBy("deleted_at is null");
     Set<Credential> credentials = new HashSet<Credential>();
 
     for (Permission permission : permissions) {
-      credentials.add(new Credential(permission.getStr("method"), permission.getStr("url"), permission.getStr("value")));
+      credentials.add(new Credential(permission.<String>get("method"), permission.<String>get("url"), permission.<String>get("value")));
     }
 
     return credentials;

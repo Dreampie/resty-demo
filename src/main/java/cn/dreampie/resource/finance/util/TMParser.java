@@ -43,7 +43,7 @@ public class TMParser extends BaseParser {
         if (order == null) {
           bill.set("state", 2);
         } else {
-          diff_settle = settle - order.getInt("total_pay");
+          diff_settle = settle - order.<Integer>get("total_pay");
           bill.set("diff_pay", diff_settle);
           order.set("state", 1).update();
           if (diff_settle == 0) {

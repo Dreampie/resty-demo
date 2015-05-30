@@ -17,7 +17,7 @@ public class User extends Model<User> {
   public Long getRoleId() {
     if (this.get("role_id") == null && this.get("id") != null) {
       String sql = "SELECT user_role.role_id FROM sec_user_role user_role WHERE user_role.user_id=?";
-      this.put("role_id", queryLong(sql, this.get("id")));
+      this.put("role_id", queryFirst(sql, this.get("id")));
     }
     return this.get("role_id");
   }

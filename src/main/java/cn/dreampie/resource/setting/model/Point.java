@@ -21,7 +21,7 @@ public class Point extends Model<Point> {
 
     Map<Integer, Point> results = new HashMap<Integer, Point>();
     for (Point point : points) {
-      results.put(point.getInt("shop_id"), point);
+      results.put(point.<Integer>get("shop_id"), point);
     }
     return results;
   }

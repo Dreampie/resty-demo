@@ -22,7 +22,7 @@ public class Product extends Model<Product> {
     Map<String, Product> results = new HashMap<String, Product>();
 
     for (Product product : products) {
-      results.put(product.getStr("bar_code"), product);
+      results.put(product.<String>get("bar_code"), product);
     }
     return results;
   }

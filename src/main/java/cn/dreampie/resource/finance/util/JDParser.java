@@ -36,7 +36,7 @@ public class JDParser extends BaseParser {
     for (CSVRecord orderBill : orderBills) {
       if (orderBill.get(sku_column) != null && !"".equals(orderBill.get(sku_column).trim())) {
         if ("".equals(orderBill.get(code_column).trim())) {
-          bill.set("note", bill.getStr("note") + ",产品-" + orderBill.get(sku_column).trim() + ":价格-" + orderBill.get(product_settle_column).trim());
+          bill.set("note", bill.<String>get("note") + ",产品-" + orderBill.get(sku_column).trim() + ":价格-" + orderBill.get(product_settle_column).trim());
           bill.update();
         } else {
           settle = (int) Double.parseDouble(orderBill.get(settle_column).trim()) * 100;
@@ -47,7 +47,7 @@ public class JDParser extends BaseParser {
           if (order == null) {
             bill.set("state", 2);
           } else {
-            diff_settle = settle - order.getInt("total_pay");
+            diff_settle = settle - order.<Integer>get("total_pay");
             bill.set("diff_pay", diff_settle);
             order.set("state", 1).update();
             if (diff_settle == 0) {

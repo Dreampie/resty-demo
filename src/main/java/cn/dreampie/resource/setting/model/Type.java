@@ -21,7 +21,7 @@ public class Type extends Model<Type> {
     Map<String, Type> results = new HashMap<String, Type>();
 
     for (Type type : types) {
-      results.put(type.getStr("name"), type);
+      results.put(type.<String>get("name"), type);
     }
     return results;
   }

@@ -75,13 +75,13 @@ public class FinanceResource extends ApiResource {
         String path = getRequest().getRealPath("/") + orderFile.get("path");
         if (shopName.contains("天猫")) {
           TMParser tmParser = new TMParser(path);
-          tmParser.process(orderFile.getLong("id"), shopId, shopName, month);
+          tmParser.process(orderFile.<Long>get("id"), shopId, shopName, month);
         } else if (shopName.contains("京东")) {
           JDParser jdParser = new JDParser(path);
-          jdParser.process(orderFile.getLong("id"), shopId, shopName, month);
+          jdParser.process(orderFile.<Long>get("id"), shopId, shopName, month);
         } else if (shopName.contains("一号")) {
           YHDParser yhdParser = new YHDParser(path);
-          yhdParser.process(orderFile.getLong("id"), shopId, shopName, month);
+          yhdParser.process(orderFile.<Long>get("id"), shopId, shopName, month);
         }
 
         return orderFile;

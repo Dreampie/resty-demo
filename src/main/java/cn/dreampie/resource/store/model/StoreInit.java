@@ -22,7 +22,7 @@ public class StoreInit extends Model<StoreInit> {
     Map<String, StoreInit> results = new HashMap<String, StoreInit>();
 
     for (StoreInit init : inits) {
-      results.put(init.getStr("bar_code"), init);
+      results.put(init.<String>get("bar_code"), init);
     }
     return results;
   }

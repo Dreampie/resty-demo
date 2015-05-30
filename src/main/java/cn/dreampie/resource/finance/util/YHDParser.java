@@ -33,8 +33,8 @@ public class YHDParser extends BaseParser {
     for (CSVRecord orderBill : orderBills) {
       if (orderBill.get(settle_column) != null && !"".equals(orderBill.get(sku_column).trim())) {
         settle = (int) Double.parseDouble(orderBill.get(settle_column).trim()) * 100;
-        if (bill != null && bill.getStr("code").equals(orderBill.get(code_column).trim())) {
-          bill.set("settle", bill.getInt("settle") + settle).set("note", bill.getStr("note") + ",产品-" + orderBill.get(sku_column).trim() + ":价格-" + orderBill.get(settle_column).trim());
+        if (bill != null && bill.<String>get("code").equals(orderBill.get(code_column).trim())) {
+          bill.set("settle", bill.<Integer>get("settle") + settle).set("note", bill.<String>get("note") + ",产品-" + orderBill.get(sku_column).trim() + ":价格-" + orderBill.get(settle_column).trim());
           check(shopId, bill);
           bill.update();
         } else {
@@ -52,13 +52,13 @@ public class YHDParser extends BaseParser {
   private void check(String shopId, OrderBill bill) {
     Order order;
     int diff_settle = 0;
-    order = Order.dao.findFirstBy("shop_id=? AND code=?", shopId, bill.getStr("code"));
+    order = Order.dao.findFirstBy("shop_id=? AND code=?", shopId, bill.<String>get("code"));
     if (order == null) {
       bill.set("state", 2);
     } else {
-      diff_settle = bill.getInt("settle") - order.getInt("total_pay");
+      diff_settle = bill.<Integer>get("settle") - order.<Integer>get("total_pay");
       bill.set("diff_pay", diff_settle);
-      if (order.getInt("state") != 1) {
+      if (order.<Integer>get("state") != 1) {
         order.set("state", 1).update();
       }
       if (diff_settle == 0) {
