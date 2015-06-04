@@ -17,15 +17,15 @@ public class MyAuthenticateService extends AuthenticateService {
 
 
   public Principal getPrincipal(String username) {
-    User user = User.dao.findFirstBy("username=? AND deleted_at is null", username);
+    User user = User.dao.findFirstBy("username=? AND deleted_at IS NULL", username);
     if (user != null)
-      return new Principal<User>(username, user.<String>get("password"), user.getPermissions(), user);
+      return new Principal<User>(username, user.<String>get("password"), user.getPermissionValues(), user);
     else
       return null;
   }
 
   public Set<Credential> getAllCredentials() {
-    List<Permission> permissions = Permission.dao.findBy("deleted_at is null");
+    List<Permission> permissions = Permission.dao.findBy("deleted_at IS NULL");
     Set<Credential> credentials = new HashSet<Credential>();
 
     for (Permission permission : permissions) {

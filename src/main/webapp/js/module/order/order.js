@@ -1,5 +1,5 @@
-(function () {
-  define(['regularjs', 'rgl!/html/module/order/order.html', '/js/http.js', '/js/plugin/app/pager.js', '/js/plugin/app/datepicker.js', 'table2csv'], function (Regular, tpl, $http, Pager) {
+(function() {
+  define(['regularjs', 'rgl!/html/module/order/order.html', '/js/http.js', '/js/plugin/app/pager.js', '/js/plugin/app/datepicker.js', 'table2csv'], function(Regular, tpl, $http, Pager) {
     'use strict';
     return Regular.extend({
       template: tpl,
@@ -57,18 +57,18 @@
           }
         ]
       },
-      init: function () {
+      init: function() {
         var component;
         component = this;
         return component.searchOrder();
       },
-      selectOrderShop: function (shop) {
+      selectOrderShop: function(shop) {
         var component;
         component = this;
         component.data.orderShopName = shop.name;
         return component.data.orderShopId = shop.id;
       },
-      searchOrder: function (date) {
+      searchOrder: function(date) {
         var component, param;
         component = this;
         component.data.searchOrder.loading = true;
@@ -87,7 +87,7 @@
             component.data.searchOrder.error = true;
           }
         }
-        return $http.get('/api/v1.0/orders', param, function (rep) {
+        return $http.get('/api/v1.0/orders', param, function(rep) {
           if (rep) {
             component.data.orders = rep;
           }
@@ -95,7 +95,7 @@
           return component.$update();
         });
       },
-      refresh: function (page, redirect) {
+      refresh: function(page, redirect) {
         var component;
         component = this;
         component.data.orderPageNum = page;
@@ -105,22 +105,22 @@
         });
         return false;
       },
-      selectOrderState: function (state) {
+      selectOrderState: function(state) {
         var component;
         component = this;
         component.data.orderStateName = state.name;
         return component.data.orderStateId = state.id;
       },
-      formatNum: function (number, digit) {
+      formatNum: function(number, digit) {
         return String(Number(number / 100).toFixed(digit));
       },
-      "export": function (sel, name, $event) {
+      "export": function(sel, name, $event) {
         return $($event.target).table2csv(sel, name);
       },
-      formatProduct: function (product) {
+      formatProduct: function(product) {
         return product.product_name + " X " + product.product_count;
       },
-      formatState: function (state) {
+      formatState: function(state) {
         switch (state) {
           case 0:
             return '未对单';

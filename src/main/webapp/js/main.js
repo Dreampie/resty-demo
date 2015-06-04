@@ -1,4 +1,4 @@
-(function () {
+(function() {
   'use strict';
   var libsources;
 
@@ -6,14 +6,14 @@
     version: {
       'require-css': '0.1.8-1',
       'jquery': '2.1.3',
-      'Semantic-UI': '1.8.1',
+      'Semantic-UI': '1.12.3',
       'bootstrap-datepicker': '1.4.0',
       'jquery-file-upload': '9.8.1'
     },
-    jarpath: function (requireid, webjarsname) {
+    jarpath: function(requireid, webjarsname) {
       return 'webjars/' + requireid + '/' + libsources.version[requireid] + '/' + webjarsname;
     },
-    jarpaths: function (requireid, webjarsname, cdnname) {
+    jarpaths: function(requireid, webjarsname, cdnname) {
       var webjarspath;
       webjarspath = libsources.jarpath(requireid, webjarsname);
       if (libsources.cdn[requireid]) {
@@ -22,13 +22,13 @@
         return webjarspath;
       }
     },
-    localjs: function (name) {
+    localjs: function(name) {
       return 'js/' + name;
     },
-    localcss: function (name) {
+    localcss: function(name) {
       return 'css/' + name;
     },
-    localpaths: function (requireid, localname, cdnname, type) {
+    localpaths: function(requireid, localname, cdnname, type) {
       var localpath;
       if (type == null) {
         type = 'js';
@@ -40,10 +40,10 @@
         return localpath;
       }
     },
-    cdnpath: function (requireid, cdnname) {
+    cdnpath: function(requireid, cdnname) {
       return libsources.cdn[requireid] + requireid + '/' + libsources.version[requireid] + '/' + cdnname;
     },
-    getTime: function () {
+    getTime: function() {
       var dd, hh, mm, now, yy;
       now = new Date();
       yy = now.getYear();
@@ -91,7 +91,7 @@
     }
   });
 
-  require(['jquery', 'restate', 'regularjs', '/js/http.js', '/js/app.js', '/js/login.js', '/js/module/order/order.js', '/js/module/sale/sale.js', '/js/module/finance/finance.js', '/js/module/setting/setting.js'], function ($, restate, Regular, $http, App, Login, Order, Sale, Finance, Setting) {
+  require(['jquery', 'restate', 'regularjs', '/js/http.js', '/js/app.js', '/js/login.js', '/js/module/order/order.js', '/js/module/sale/sale.js', '/js/module/finance/finance.js', '/js/module/setting/setting.js'], function($, restate, Regular, $http, App, Login, Order, Sale, Finance, Setting) {
     'use strict';
     var e, stateman, username;
     stateman = restate({
@@ -101,7 +101,7 @@
     try {
       username = localStorage.getItem("username");
       if (username) {
-        $http.getA('/api/v1.0/sessions', function (rep) {
+        $http.getA('/api/v1.0/sessions', function(rep) {
           if (rep) {
             return stateman.user = rep;
           } else {
@@ -115,7 +115,7 @@
     } catch (_error) {
       e = _error;
     }
-    stateman.state("app", App, "").state("app.index", Login, "").state("app.order", Order, "order").state("app.sale", Sale, "sale").state("app.finance", Finance, "finance").state("app.setting", Setting, "setting").on("notfound", function (option) {
+    stateman.state("app", App, "").state("app.index", Login, "").state("app.order", Order, "order").state("app.sale", Sale, "sale").state("app.finance", Finance, "finance").state("app.setting", Setting, "setting").on("notfound", function(option) {
       var component;
       component = this;
       if (!option.current || option.current.name !== "app.index") {
@@ -123,7 +123,7 @@
           replace: true
         });
       }
-    }).on("begin", function (option) {
+    }).on("begin", function(option) {
       var component;
       component = this;
       if (!option.current || option.current.name !== "app.index" && !component.user) {
@@ -136,11 +136,11 @@
       html5: true
     });
     window.Regular = Regular;
-    Regular.filter('replace', function (val, rep) {
+    Regular.filter('replace', function(val, rep) {
       return val.toString().replace(rep, '');
     });
-    return $(function () {
-      $(document).ajaxError(function (event, xhr, options, exc) {
+    return $(function() {
+      $(document).ajaxError(function(event, xhr, options, exc) {
         switch (xhr.status) {
           case 401:
             return stateman.go('app.index', {
@@ -148,12 +148,12 @@
             });
         }
       });
-      $(".back-top").click(function () {
+      $(".back-top").click(function() {
         return $('html, body').animate({
           scrollTop: '0px'
         }, 400, 'linear');
       });
-      return $(window).scroll(function () {
+      return $(window).scroll(function() {
         if ($(window).scrollTop() > 200) {
           return $(".back-top").fadeIn(200);
         } else {

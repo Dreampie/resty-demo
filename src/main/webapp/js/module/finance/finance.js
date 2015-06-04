@@ -1,5 +1,5 @@
-(function () {
-  define(['regularjs', 'rgl!/html/module/finance/finance.html', '/js/http.js', '/js/plugin/app/pager.js', '/js/plugin/app/datepicker.js', 'table2csv', 'jquery-file-upload'], function (Regular, tpl, $http, Pager) {
+(function() {
+  define(['regularjs', 'rgl!/html/module/finance/finance.html', '/js/http.js', '/js/plugin/app/pager.js', '/js/plugin/app/datepicker.js', 'table2csv', 'jquery-file-upload'], function(Regular, tpl, $http, Pager) {
     return Regular.extend({
       template: tpl,
       data: {
@@ -76,7 +76,7 @@
           error: false
         }
       },
-      init: function () {
+      init: function() {
         var component;
         component = this;
         component.product();
@@ -86,7 +86,7 @@
         return $(component.$refs.fileupload).fileupload({
           url: "/api/v1.0/finances/files",
           sequentialUploads: true,
-          submit: function (e, data) {
+          submit: function(e, data) {
             data.formData = {
               month: component.data.fileMonth,
               shopId: component.data.fileShopId,
@@ -95,9 +95,8 @@
             component.data.fileState.loading = true;
             return component.$update();
           },
-          done: function (e, result) {
-          },
-          success: function (result, textStatus, jqXHR) {
+          done: function(e, result) {},
+          success: function(result, textStatus, jqXHR) {
             component.data.fileState.loading = false;
             component.data.rep = {
               success: true,
@@ -105,7 +104,7 @@
             };
             return component.$update();
           },
-          error: function (jqXHR, textStatus, errorThrown) {
+          error: function(jqXHR, textStatus, errorThrown) {
             component.data.fileState.loading = false;
             component.data.rep = {
               success: false,
@@ -115,7 +114,7 @@
           }
         });
       },
-      active: function (tab) {
+      active: function(tab) {
         var component;
         component = this;
         switch (tab) {
@@ -149,7 +148,7 @@
             };
         }
       },
-      product: function (month) {
+      product: function(month) {
         var component, param;
         component = this;
         if (month) {
@@ -163,13 +162,13 @@
         } else {
           component.data.productState.error = true;
         }
-        return $http.get('/api/v1.0/orders/products', param, function (rep) {
+        return $http.get('/api/v1.0/orders/products', param, function(rep) {
           component.data.products = rep;
           component.data.productState.loading = false;
           return component.$update();
         });
       },
-      gift: function (month) {
+      gift: function(month) {
         var component, param;
         component = this;
         if (month) {
@@ -183,13 +182,13 @@
         } else {
           component.data.giftState.error = true;
         }
-        return $http.get('/api/v1.0/gifts/monthlys', param, function (rep) {
+        return $http.get('/api/v1.0/gifts/monthlys', param, function(rep) {
           component.data.gifts = rep;
           component.data.giftState.loading = false;
           return component.$update();
         });
       },
-      bill: function (month) {
+      bill: function(month) {
         var component, param;
         component = this;
         param = {
@@ -212,20 +211,20 @@
             component.data.billState.serror = true;
           }
         }
-        return $http.get('/api/v1.0/finances/bills', param, function (rep) {
+        return $http.get('/api/v1.0/finances/bills', param, function(rep) {
           component.data.bills = rep;
           component.data.billState.loading = false;
           return component.$update();
         });
       },
-      refresh: function (page, redirect) {
+      refresh: function(page, redirect) {
         var component;
         component = this;
         component.data.billPageNum = page;
         component.$refs.billDatepicker.$emit('select', component.$refs.billDatepicker.data.start);
         return false;
       },
-      file: function (month) {
+      file: function(month) {
         var component, param;
         component = this;
         if (month) {
@@ -239,41 +238,41 @@
         } else {
           component.data.fileState.error = true;
         }
-        return $http.get('/api/v1.0/finances/files', param, function (rep) {
+        return $http.get('/api/v1.0/finances/files', param, function(rep) {
           component.data.files = rep;
           component.data.fileState.loading = false;
           return component.$update();
         });
       },
-      selectBillShop: function (shop) {
+      selectBillShop: function(shop) {
         var component;
         component = this;
         component.data.billShopName = shop.name;
         return component.data.billShopId = shop.id;
       },
-      selectBillState: function (state) {
+      selectBillState: function(state) {
         var component;
         component = this;
         component.data.billStateName = state.name;
         return component.data.billStateId = state.id;
       },
-      selectBillMonth: function (month) {
+      selectBillMonth: function(month) {
         var component;
         component = this;
         return component.data.billMonth = month;
       },
-      selectFileShop: function (shop) {
+      selectFileShop: function(shop) {
         var component;
         component = this;
         component.data.fileShopName = shop.name;
         return component.data.fileShopId = shop.id;
       },
-      selectFileMonth: function (month) {
+      selectFileMonth: function(month) {
         var component;
         component = this;
         return component.data.fileMonth = month;
       },
-      upload: function () {
+      upload: function() {
         var component, result;
         component = this;
         result = false;
@@ -291,17 +290,17 @@
         }
         return result;
       },
-      formatNum: function (number, digit) {
+      formatNum: function(number, digit) {
         return String(Number(number / 100).toFixed(digit));
       },
-      formatDiff: function (number, digit) {
+      formatDiff: function(number, digit) {
         if (number) {
           return String(Number(number / 100).toFixed(digit));
         } else {
           return "";
         }
       },
-      formatState: function (state) {
+      formatState: function(state) {
         switch (state) {
           case 0:
             return '完全匹配';
@@ -311,7 +310,7 @@
             return '不匹配';
         }
       },
-      "export": function (sel, name, $event) {
+      "export": function(sel, name, $event) {
         return $($event.target).table2csv(sel, name);
       }
     }).component("pager", Pager);

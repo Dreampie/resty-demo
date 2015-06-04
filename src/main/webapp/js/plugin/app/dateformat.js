@@ -1,5 +1,5 @@
-(function () {
-  Date.prototype.format = function (fmt) {
+(function() {
+  Date.prototype.format = function(fmt) {
     var k, o, v, week;
     o = {
       "M+": this.getMonth() + 1,

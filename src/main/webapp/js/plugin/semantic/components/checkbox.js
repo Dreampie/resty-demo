@@ -64,13 +64,13 @@
               module.set.checked();
               if (settings.fireOnInit) {
                 settings.onChecked.call($input.get());
-              }
+            }
             }
             else {
               module.remove.checked();
               if (settings.fireOnInit) {
                 settings.onUnchecked.call($input.get());
-              }
+            }
             }
             module.observeChanges();
 
@@ -134,35 +134,35 @@
 
           event: {
             keydown: function (event) {
-              var
-                key = event.which,
-                keyCode = {
-                  enter: 13,
-                  space: 32,
-                  escape: 27
-                }
-                ;
+            var
+              key = event.which,
+              keyCode = {
+                enter: 13,
+                space: 32,
+                escape: 27
+              }
+            ;
               if (key == keyCode.escape) {
                 module.verbose('Escape key pressed blurring field');
                 $module
                   .blur()
-                ;
-              }
+              ;
+            }
               if (!event.ctrlKey && (key == keyCode.enter || key == keyCode.space)) {
                 module.verbose('Enter key pressed, toggling checkbox');
                 module.toggle.call(this);
                 event.preventDefault();
-              }
+            }
             }
           },
 
           is: {
             radio: function () {
               return $module.hasClass(className.radio);
-            },
+          },
             checked: function () {
               return $input.prop('checked') !== undefined && $input.prop('checked');
-            },
+          },
             unchecked: function () {
               return !module.is.checked();
             }
@@ -171,7 +171,7 @@
           can: {
             change: function () {
               return !( $module.hasClass(className.disabled) || $module.hasClass(className.readOnly) || $input.prop('disabled') );
-            },
+          },
             uncheck: function () {
               return (typeof settings.uncheckable === 'boolean')
                 ? settings.uncheckable
@@ -183,13 +183,13 @@
           set: {
             checked: function () {
               $module.addClass(className.checked);
-            },
+          },
             tab: function () {
               if ($input.attr('tabindex') === undefined) {
                 $input
                   .attr('tabindex', 0)
                 ;
-              }
+            }
             }
           },
 
@@ -198,11 +198,11 @@
               if ($input.prevAll(selector.label).length > 0) {
                 $input.prev(selector.label).detach().insertAfter($input);
                 module.debug('Moving existing label', $label);
-              }
+            }
               else if (!module.has.label()) {
                 $label = $('<label>').insertAfter($input);
                 module.debug('Creating label', $label);
-              }
+            }
             }
           },
 
@@ -225,16 +225,16 @@
           remove: {
             checked: function () {
               $module.removeClass(className.checked);
-            },
+          },
             events: function () {
               module.debug('Removing events');
               $module
                 .off(eventNamespace)
                 .removeData(moduleNamespace)
-              ;
-              $input
-                .off(eventNamespace, module.event.keydown)
-              ;
+            ;
+            $input
+              .off(eventNamespace, module.event.keydown)
+            ;
               $label
                 .off(eventNamespace)
               ;
@@ -320,22 +320,22 @@
             if (settings.debug) {
               if (settings.performance) {
                 module.performance.log(arguments);
-              }
-              else {
+            }
+            else {
                 module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
                 module.debug.apply(console, arguments);
-              }
+            }
             }
           },
           verbose: function () {
             if (settings.verbose && settings.debug) {
               if (settings.performance) {
                 module.performance.log(arguments);
-              }
-              else {
+            }
+            else {
                 module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
                 module.verbose.apply(console, arguments);
-              }
+            }
             }
           },
           error: function () {
@@ -363,7 +363,7 @@
               }
               clearTimeout(module.performance.timer);
               module.performance.timer = setTimeout(module.performance.display, 100);
-            },
+          },
             display: function () {
               var
                 title = settings.name + ':',
@@ -382,14 +382,14 @@
                 console.groupCollapsed(title);
                 if (console.table) {
                   console.table(performance);
-                }
-                else {
+              }
+              else {
                   $.each(performance, function (index, data) {
                     console.log(data['Name'] + ': ' + data['Execution Time'] + 'ms');
                   });
-                }
-                console.groupEnd();
               }
+                console.groupEnd();
+            }
               performance = [];
             }
           },
@@ -412,30 +412,30 @@
                   ;
                 if ($.isPlainObject(object[camelCaseValue]) && (depth != maxDepth)) {
                   object = object[camelCaseValue];
-                }
+              }
                 else if (object[camelCaseValue] !== undefined) {
                   found = object[camelCaseValue];
                   return false;
-                }
+              }
                 else if ($.isPlainObject(object[value]) && (depth != maxDepth)) {
                   object = object[value];
-                }
+              }
                 else if (object[value] !== undefined) {
                   found = object[value];
                   return false;
-                }
+              }
                 else {
                   module.error(error.method, query);
                   return false;
-                }
+              }
               });
-            }
+          }
             if ($.isFunction(found)) {
               response = found.apply(context, passedArguments);
-            }
+          }
             else if (found !== undefined) {
               response = found;
-            }
+          }
             if ($.isArray(returnedValue)) {
               returnedValue.push(response);
             }
@@ -451,8 +451,8 @@
 
         if (methodInvoked) {
           if (instance === undefined) {
-            module.initialize();
-          }
+          module.initialize();
+        }
           module.invoke(query);
         }
         else {

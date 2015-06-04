@@ -9,9 +9,11 @@
  *
  */
 
+
 /*******************************
             Elements
 *******************************/
+
 
 /*--------------------
         Form
@@ -39,7 +41,6 @@
   clear: both;
   margin: 0em 0em 1em;
 }
-
 .ui.form .fields:last-child,
 .ui.form .field:last-child {
   margin-bottom: 0em;
@@ -57,7 +58,6 @@
   font-weight: bold;
   text-transform: none;
 }
-
 .ui.form .grouped.fields > label {
   margin: 0em 0em 0.2857rem 0em;
   color: rgba(0, 0, 0, 0.8);
@@ -65,7 +65,6 @@
   font-weight: bold;
   text-transform: none;
 }
-
 .ui.form .inline.fields > label {
   display: inline-block;
   vertical-align: middle;
@@ -96,7 +95,6 @@
   width: 100%;
   vertical-align: top;
 }
-
 .ui.form input:not([type]),
 .ui.form input[type="date"],
 .ui.form input[type="datetime-local"],
@@ -122,9 +120,8 @@
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
-
 .ui.textarea,
 .ui.form textarea {
   margin: 0em;
@@ -138,7 +135,7 @@
   border-radius: 0.2857rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   font-size: 1em;
   height: 12em;
   min-height: 8em;
@@ -146,7 +143,6 @@
   line-height: 1.2857;
   resize: vertical;
 }
-
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
   vertical-align: top;
@@ -175,7 +171,7 @@
   padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.8);
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 /*--------------------
@@ -185,15 +181,12 @@
 .ui.form .field > .selection.dropdown {
   width: 100%;
 }
-
 .ui.form .field > .selection.dropdown > .dropdown.icon {
   float: right;
 }
-
 .ui.form .inline.field > .selection.dropdown {
   width: auto;
 }
-
 .ui.form .inline.field > .selection.dropdown > .dropdown.icon {
   float: none;
 }
@@ -229,11 +222,9 @@
 .ui.form .field .prompt.label {
   white-space: nowrap;
 }
-
 .ui.form .inline.field .prompt {
   margin: -0.5em 0em -0.5em 1em;
 }
-
 .ui.form .inline.field .prompt:before {
   margin-top: -0.3em;
   bottom: auto;
@@ -242,27 +233,27 @@
   left: 0em;
 }
 
+
 /*******************************
             States
 *******************************/
+
 
 /*--------------------
       Placeholder
 ---------------------*/
 
+
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
   color: rgba(140, 140, 140, 0.8);
 }
-
 .ui.form ::-moz-placeholder {
   color: rgba(140, 140, 140, 0.8);
 }
-
 .ui.form :focus::-webkit-input-placeholder {
   color: rgba(89, 89, 89, 0.8);
 }
-
 .ui.form :focus::-moz-placeholder {
   color: rgba(89, 89, 89, 0.8);
 }
@@ -271,15 +262,12 @@
 .ui.form .error ::-webkit-input-placeholder {
   color: #e38585;
 }
-
 .ui.form .error ::-moz-placeholder {
   color: #e38585;
 }
-
 .ui.form .error :focus::-webkit-input-placeholder {
   color: #de7171;
 }
-
 .ui.form .error :focus::-moz-placeholder {
   color: #de7171;
 }
@@ -305,7 +293,6 @@
   background: #ffffff;
   box-shadow: 1px 0em 0em 0em rgba(39, 41, 43, 0.3) inset;
 }
-
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(39, 41, 43, 0.3);
@@ -319,6 +306,7 @@
         Success
 ---------------------*/
 
+
 /* On Form */
 .ui.form.success .success.message {
   display: block;
@@ -328,6 +316,7 @@
         Error
 ---------------------*/
 
+
 /* On Form */
 .ui.form.warning .warning.message {
   display: block;
@@ -336,6 +325,7 @@
 /*--------------------
         Warning
 ---------------------*/
+
 
 /* On Form */
 .ui.form.error .error.message {
@@ -349,13 +339,11 @@
 .ui.form .field.error .input {
   color: #d95c5c;
 }
-
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
   border-color: #d95c5c;
   color: #ffffff;
 }
-
 .ui.form .fields.error .field textarea,
 .ui.form .fields.error .field select,
 .ui.form .fields.error .field input:not([type]),
@@ -388,7 +376,6 @@
   border-radius: 0em 0.2857rem 0.2857rem 0em;
   box-shadow: 2px 0em 0em 0em #d95c5c inset;
 }
-
 .ui.form .field.error textarea:focus,
 .ui.form .field.error select:focus,
 .ui.form .field.error input:not([type]):focus,
@@ -426,17 +413,14 @@
   background: #fff0f0;
   color: #d95c5c;
 }
-
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
   border-color: #dbb1b1 !important;
 }
-
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
   border-color: #dbb1b1 !important;
 }
-
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
   border-color: #dbb1b1;
@@ -464,7 +448,6 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box {
   color: #d95c5c;
 }
-
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
@@ -472,7 +455,6 @@
   background: #fff0f0;
   border-color: #dbb1b1;
 }
-
 .ui.form .fields.error .field .checkbox label:after,
 .ui.form .field.error .checkbox label:after,
 .ui.form .fields.error .field .checkbox .box:after,
@@ -488,11 +470,9 @@
 .ui.form .field.disabled {
   opacity: 0.5;
 }
-
 .ui.form .field.disabled label {
   opacity: 0.5;
 }
-
 .ui.form .field.disabled :disabled {
   opacity: 1;
 }
@@ -508,10 +488,9 @@
   text-shadow: none !important;
   color: transparent !important;
   -webkit-transition: all 0s linear;
-  transition: all 0s linear;
+          transition: all 0s linear;
   z-index: 100;
 }
-
 .ui.loading.form:before {
   position: absolute;
   content: '';
@@ -522,7 +501,6 @@
   height: 100%;
   z-index: 100;
 }
-
 .ui.loading.form:after {
   position: absolute;
   content: '';
@@ -532,9 +510,9 @@
   width: 3em;
   height: 3em;
   -webkit-animation: form-spin 0.6s linear;
-  animation: form-spin 0.6s linear;
+          animation: form-spin 0.6s linear;
   -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
   border-radius: 500rem;
   border-color: #aaaaaa rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
   border-style: solid;
@@ -543,32 +521,32 @@
   visibility: visible;
   z-index: 101;
 }
-
 @-webkit-keyframes form-spin {
   from {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   to {
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
-
 @keyframes form-spin {
   from {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   to {
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
+
 
 /*******************************
          Element Types
 *******************************/
+
 
 /*--------------------
      Required Field
@@ -582,13 +560,11 @@
   content: '*';
   color: #d95c5c;
 }
-
 .ui.form .required.fields > .field > label:after,
 .ui.form .required.field > label:after {
   display: inline-block;
   vertical-align: top;
 }
-
 .ui.form .required.fields > .field > .checkbox:after,
 .ui.form .required.field > .checkbox:after {
   position: absolute;
@@ -596,9 +572,11 @@
   left: 100%;
 }
 
+
 /*******************************
            Variations
 *******************************/
+
 
 /*--------------------
     Inverted Colors
@@ -617,19 +595,17 @@
      Field Groups
 ---------------------*/
 
+
 /* Grouped Vertically */
 .ui.form .grouped.fields {
   margin: 0em 0em 1em;
 }
-
 .ui.form .grouped.fields:last-child {
   margin-bottom: 0em;
 }
-
 .ui.form .grouped.fields > label {
   font-size: 0.9285em;
 }
-
 .ui.form .grouped.fields .field {
   display: block;
   float: none;
@@ -641,11 +617,11 @@
         Fields
 ---------------------*/
 
+
 /* Split fields */
 .ui.form .fields {
   clear: both;
 }
-
 .ui.form .fields:after {
   content: ' ';
   display: block;
@@ -654,14 +630,12 @@
   line-height: 0;
   height: 0;
 }
-
 .ui.form .fields > .field {
   clear: none;
   float: left;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
-
 .ui.form .fields > .field:first-child {
   border-left: none;
   box-shadow: none;
@@ -672,42 +646,34 @@
 .ui.form .two.fields > .field {
   width: 50%;
 }
-
 .ui.form .three.fields > .fields,
 .ui.form .three.fields > .field {
   width: 33.33333333%;
 }
-
 .ui.form .four.fields > .fields,
 .ui.form .four.fields > .field {
   width: 25%;
 }
-
 .ui.form .five.fields > .fields,
 .ui.form .five.fields > .field {
   width: 20%;
 }
-
 .ui.form .six.fields > .fields,
 .ui.form .six.fields > .field {
   width: 16.66666667%;
 }
-
 .ui.form .seven.fields > .fields,
 .ui.form .seven.fields > .field {
   width: 14.28571429%;
 }
-
 .ui.form .eight.fields > .fields,
 .ui.form .eight.fields > .field {
   width: 12.5%;
 }
-
 .ui.form .nine.fields > .fields,
 .ui.form .nine.fields > .field {
   width: 11.11111111%;
 }
-
 .ui.form .ten.fields > .fields,
 .ui.form .ten.fields > .field {
   width: 10%;
@@ -739,11 +705,9 @@
     padding-right: 0%;
   }
 }
-
 .ui.form .fields .field:first-child {
   padding-left: 0%;
 }
-
 .ui.form .fields .field:last-child {
   padding-right: 0%;
 }
@@ -754,75 +718,57 @@
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
-
 .ui.form .fields .wide.field:first-child {
   padding-left: 0%;
 }
-
 .ui.form .fields .wide.field:last-child {
   padding-right: 0%;
 }
-
 .ui.form .one.wide.field {
   width: 6.25% !important;
 }
-
 .ui.form .two.wide.field {
   width: 12.5% !important;
 }
-
 .ui.form .three.wide.field {
   width: 18.75% !important;
 }
-
 .ui.form .four.wide.field {
   width: 25% !important;
 }
-
 .ui.form .five.wide.field {
   width: 31.25% !important;
 }
-
 .ui.form .six.wide.field {
   width: 37.5% !important;
 }
-
 .ui.form .seven.wide.field {
   width: 43.75% !important;
 }
-
 .ui.form .eight.wide.field {
   width: 50% !important;
 }
-
 .ui.form .nine.wide.field {
   width: 56.25% !important;
 }
-
 .ui.form .ten.wide.field {
   width: 62.5% !important;
 }
-
 .ui.form .eleven.wide.field {
   width: 68.75% !important;
 }
-
 .ui.form .twelve.wide.field {
   width: 75% !important;
 }
-
 .ui.form .thirteen.wide.field {
   width: 81.25% !important;
 }
-
 .ui.form .fourteen.wide.field {
   width: 87.5% !important;
 }
-
 .ui.form .fifteen.wide.field {
   width: 93.75% !important;
 }
-
 .ui.form .sixteen.wide.field {
   width: 100% !important;
 }
@@ -866,14 +812,12 @@
 .ui.form .inline.fields {
   margin: 0em 0em 1em;
 }
-
 .ui.form .inline.fields .field {
   display: inline-block;
   float: none;
   margin: 0em 1em 0em 0em;
   padding: 0em;
 }
-
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
 .ui.form .inline.fields .field > input,
@@ -889,14 +833,12 @@
   vertical-align: middle;
   font-size: 0.9285em;
 }
-
 .ui.form .inline.fields .field > input,
 .ui.form .inline.fields .field > .ui.input,
 .ui.form .inline.field > input,
 .ui.form .inline.field > .ui.input {
   font-size: 0.9285em;
 }
-
 .ui.form .inline.fields .field > .ui.checkbox label {
   padding-left: 1.75em;
 }
@@ -906,7 +848,6 @@
 .ui.form .inline.field > :first-child {
   margin: 0em 0.2857rem 0em 0em;
 }
-
 .ui.form .inline.fields .field > :only-child,
 .ui.form .inline.field > :only-child {
   margin: 0em;
@@ -915,6 +856,7 @@
 /*--------------------
         Sizes
 ---------------------*/
+
 
 /* Standard */
 .ui.small.form {
@@ -936,9 +878,12 @@
   font-size: 1.2em;
 }
 
+
 /*******************************
          Theme Overrides
 *******************************/
+
+
 
 /*******************************
          Site Overrides

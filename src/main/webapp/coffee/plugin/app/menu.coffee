@@ -13,7 +13,7 @@ define ['regularjs', 'rgl!/html/plugin/app/menu.html', '/js/http.js'], (Regular,
           data.state.user = null
           try
             localStorage.removeItem('username')
-            localStorage.removeItem("permissions")
+            localStorage.removeItem("permissionValues")
           catch e
           data.state.go('app.index')
           data.state.emit('logout')

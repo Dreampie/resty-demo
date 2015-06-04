@@ -8,8 +8,7 @@
 <div class="ui bottom attached tab segment {f_tab.first?'active':''}">
   <h1 class="ui header">产品月销售总报表<span style="margin-left: 100px;">{products.month}</span></h1>
 
-  <app-datepicker state={@(this.$state)} config="{config}" searchState={productState}
-                  on-select={this.product($event)}></app-datepicker>
+  <app-datepicker state={@(this.$state)} config="{config}" searchState={productState} on-select={this.product($event)}></app-datepicker>
   <a class="ui button large right floated" tabindex="0" on-click="{this.export('#products','产品月销售总报表.csv',$event)}">
     导出
   </a>
@@ -41,8 +40,7 @@
 <div class="ui bottom attached tab segment {f_tab.second?'active':''}">
   <h1 class="ui header">产品月销售总报表<span style="margin-left: 100px;">{products.month}</span></h1>
 
-  <app-datepicker state={@(this.$state)} config="{config}" searchState={giftState}
-                  on-select={this.gift($event)}></app-datepicker>
+  <app-datepicker state={@(this.$state)} config="{config}" searchState={giftState} on-select={this.gift($event)}></app-datepicker>
   <a class="ui button large right floated" tabindex="0" on-click="{this.export('#gifts','赠品月总报表.csv',$event)}">
     导出
   </a>
@@ -104,8 +102,7 @@
     </div>
   </div>
 
-  <app-datepicker ref="billDatepicker" state={@(this.$state)} config="{config}" searchState={billState}
-                  on-select={this.bill($event)}></app-datepicker>
+  <app-datepicker ref="billDatepicker" state={@(this.$state)} config="{config}" searchState={billState} on-select={this.bill($event)}></app-datepicker>
   <a class="ui button large right floated" tabindex="0" on-click="{this.export('#bills','月对单总报表.csv',$event)}">
     导出
   </a>
@@ -128,9 +125,9 @@
       <td>{this.formatNum(bill.settle,2)}</td>
       <td>
         {#if bill.diff_pay>0 }
-        <span style="color: green">{this.formatDiff(bill.diff_pay,2)}</span>
+         <span style="color: green">{this.formatDiff(bill.diff_pay,2)}</span>
         {#elseif bill.diff_pay<0}
-        <span style="color: red">{this.formatDiff(bill.diff_pay,2)}</span>
+          <span style="color: red">{this.formatDiff(bill.diff_pay,2)}</span>
         {/if}
       </td>
       <td>{bill.note}</td>
@@ -146,8 +143,7 @@
 <div class="ui bottom attached tab segment {f_tab.four?'active':''}">
   <h1 class="ui header">对单文件管理<span style="margin-left: 100px;">{bills.month}</span></h1>
 
-  <app-datepicker state={@(this.$state)} config="{config}" searchState={fileState}
-                  on-select={this.file($event)}></app-datepicker>
+  <app-datepicker state={@(this.$state)} config="{config}" searchState={fileState} on-select={this.file($event)}></app-datepicker>
 
   <div style="float:right;margin-right:0;margin-left:.25em;" on-click="{filemodal=!filemodal}">
     <label class="ui large icon button">
@@ -171,8 +167,7 @@
     </div>
 
 
-    <app-datepicker state={@(this.$state)} config="{config}" searchState={uploadState}
-                    on-change={this.selectFileMonth($event)}></app-datepicker>
+    <app-datepicker state={@(this.$state)} config="{config}" searchState={uploadState} on-change={this.selectFileMonth($event)}></app-datepicker>
 
     <div style="margin-right:0;margin-left:.25em;display: inline-block;" on-click="{this.upload()}">
       <label for="fileupload" class="ui icon button large {fileState.loading?'loading':''}">

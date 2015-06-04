@@ -1,5 +1,5 @@
 (function() {
-  define(['regularjs', 'rgl!/html/module/setting/setting.html', '/js/http.js', '/js/plugin/app/datepicker.js', '/js/plugin/app/dateformat.js'], function(Regular, tpl, $http) {
+  define(['regularjs', 'semantic-ui', 'rgl!/html/module/setting/setting.html', '/js/http.js', '/js/plugin/app/datepicker.js', '/js/plugin/app/dateformat.js'], function(Regular, Semantic, tpl, $http) {
     return Regular.extend({
       template: tpl,
       data: {
@@ -34,6 +34,12 @@
         rep: {
           success: false,
           error: false
+        },
+        modalConfig: {
+          selector: {
+            close: '.close,.cancel',
+            approve: '.ok'
+          }
         }
       },
       active: function(tab) {
@@ -85,6 +91,156 @@
             return component.$update();
           }
         });
+      },
+      beforeUpdateUser: function(id) {
+        var component;
+        component = this;
+        component.data.roles = {};
+        return $http.get('/api/v1.0/users/' + id, function(rep) {
+          var ids, p, _i, _len, _ref;
+          if (rep) {
+            component.data.updateUser = rep;
+            ids = [];
+            _ref = component.data.updateUser.permissions;
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+              p = _ref[_i];
+              ids.push(p.id);
+            }
+            component.$update();
+            component.getAllPermissions(ids);
+            return $('.modal.updateUser').modal(component.data.modalConfig).modal('show');
+          }
+        });
+      },
+      beforeDeleteUser: function(id, name) {
+        var component;
+        component = this;
+        component.data.updateUser = {
+          id: id,
+          name: name
+        };
+        return $('.modal.deleteUser').modal(component.data.modalConfig).modal('show');
+      },
+      deleteUser: function(id) {
+        var component;
+        component = this;
+        return $http["delete"]('/api/v1.0/users/' + component.data.updateUser.id, function(rep) {
+          if (rep) {
+            component.user();
+            component.$update();
+            return $('.modal.deleteUser').modal('hide');
+          }
+        });
+      },
+      beforeSaveUser: function() {
+        var component;
+        component = this;
+        component.data.updateUser = {};
+        component.getAllRoles();
+        return $('.modal.updateUser').modal(component.data.modalConfig).modal('show');
+      },
+      getAllRoles: function() {
+        var component;
+        component = this;
+        component.data.roles = {};
+        return $http.get('/api/v1.0/roles', function(rrep) {
+          if (rrep) {
+            component.data.roles = rrep;
+            return component.$update();
+          }
+        });
+      },
+      getAllPermissions: function(ids) {
+        var component;
+        component = this;
+        return $http.get('/api/v1.0/permissions', function(rrep) {
+          var p, _i, _len, _ref;
+          if (rrep) {
+            component.data.permissions = rrep;
+            if (ids) {
+              _ref = component.data.permissions;
+              for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                p = _ref[_i];
+                if (ids.indexOf(p.id) >= 0) {
+                  p.checked = true;
+                } else {
+                  p.checked = false;
+                }
+              }
+            }
+            return component.$update();
+          }
+        });
+      },
+      updateOrSaveUser: function(user) {
+        var component, p, permissions, r, role, _i, _j, _len, _len1, _ref, _ref1;
+        component = this;
+        if (user.id) {
+          if (!user.password && user.re_password !== user.password) {
+            user.passerror = true;
+          } else {
+            user.passerror = false;
+          }
+          permissions = [];
+          _ref = component.data.permissions;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            p = _ref[_i];
+            if (p.checked) {
+              permissions.push(p);
+            }
+          }
+          user.role.permissions = permissions;
+          return $http.put('/api/v1.0/users', {
+            user: user
+          }, function(rep) {
+            if (rep) {
+              component.user();
+              component.$update();
+              return $('.modal.updateUser').modal('hide');
+            }
+          });
+        } else {
+          if (!user.username || !user.username.match(/^\w+$/)) {
+            user.usernameerror = true;
+          } else {
+            user.usernameerror = false;
+          }
+          if (!user.first_name) {
+            user.nameerror = true;
+          } else {
+            user.nameerror = false;
+          }
+          if (!user.password || user.re_password !== user.password) {
+            user.passerror = true;
+          } else {
+            user.passerror = false;
+          }
+          _ref1 = component.data.roles;
+          for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+            r = _ref1[_j];
+            if (r.checked) {
+              role = r;
+            }
+          }
+          if (!role) {
+            user.roleerror = true;
+          } else {
+            user.roleerror = false;
+            user.role = role;
+          }
+          if (!user.usernameerror && !user.nameerror && !user.passerror && !user.roleerror) {
+            $http.post('/api/v1.0/users', {
+              user: user
+            }, function(rep) {
+              if (rep) {
+                component.user();
+                component.$update();
+                return $('.modal.updateUser').modal('hide');
+              }
+            });
+          }
+          return false;
+        }
       },
       "new": function() {
         var component, newPBarCode, newPCost, newPDate, newPName, param, s;

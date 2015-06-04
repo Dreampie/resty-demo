@@ -26,7 +26,10 @@ define ['regularjs', 'rgl!/html/login.html', '/js/http.js'], (Regular, tpl, $htt
           component.$state.user = rep
           try
             localStorage.setItem('username', username)
-            localStorage.setItem("permissions", rep.permissions)
+            ps=[]
+            for p in rep.permissions
+              ps.push(p.value)
+            localStorage.setItem("permissionValues", ps)
             #执行登录处理
             component.$state.emit('login')
           catch e

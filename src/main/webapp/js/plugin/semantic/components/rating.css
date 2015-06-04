@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
            Rating
 *******************************/
@@ -17,11 +18,9 @@
   display: inline-block;
   vertical-align: middle;
 }
-
 .ui.rating:last-child {
   margin-right: 0em;
 }
-
 .ui.rating:before {
   display: block;
   content: '';
@@ -42,13 +41,16 @@
   font-style: normal;
 }
 
+
 /*******************************
              Types
 *******************************/
 
+
 /*-------------------
         Star
 --------------------*/
+
 
 /* Inactive */
 .ui.star.rating .icon {
@@ -67,12 +69,10 @@
 .ui.star.rating .icon.selected.active {
   color: #ffb70a !important;
 }
-
 .ui.star.rating.partial {
   position: relative;
   z-index: 1;
 }
-
 .ui.star.rating.partial:before {
   position: absolute;
   z-index: -1;
@@ -99,9 +99,11 @@
   color: #ff2733 !important;
 }
 
+
 /*******************************
              States
 *******************************/
+
 
 /* Inactive Icon */
 .ui.rating .icon {
@@ -123,6 +125,7 @@
        Disabled
 --------------------*/
 
+
 /* disabled rating */
 .ui.disabled.rating .icon {
   cursor: default;
@@ -132,15 +135,16 @@
      Interacting (Active)
 --------------------*/
 
+
 /* Selected Rating */
 .ui.rating.selected .active.icon {
   opacity: 0.5;
 }
-
 .ui.rating.selected .icon.selected,
 .ui.rating .icon.selected {
   opacity: 1;
 }
+
 
 /*******************************
           Variations
@@ -149,30 +153,25 @@
 .ui.mini.rating .icon {
   font-size: 0.7rem;
 }
-
 .ui.tiny.rating .icon {
   font-size: 0.8rem;
 }
-
 .ui.small.rating .icon {
   font-size: 0.875rem;
 }
-
 .ui.rating .icon {
   font-size: 1rem;
 }
-
 .ui.large.rating .icon {
   font-size: 1.1rem;
 }
-
 .ui.huge.rating .icon {
   font-size: 1.5rem;
 }
-
 .ui.massive.rating .icon {
   font-size: 2rem;
 }
+
 
 /*******************************
          Theme Overrides
@@ -184,12 +183,11 @@
   font-weight: normal;
   font-style: normal;
 }
-
 .ui.rating .icon {
   font-family: 'Rating';
   line-height: 1;
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+          backface-visibility: hidden;
   font-weight: normal;
   font-style: normal;
   text-align: center;
@@ -209,6 +207,7 @@
         Star
 --------------------*/
 
+
 /* Unfilled Star */
 .ui.star.rating .icon:before {
   content: '\f005';
@@ -223,7 +222,6 @@
 .ui.star.rating .partial.icon:before {
   content: '\f006';
 }
-
 .ui.star.rating .partial.icon {
   content: '\f005';
 }
@@ -231,6 +229,7 @@
 /*-------------------
         Heart
 --------------------*/
+
 
 /* Empty Heart
 .ui.heart.rating .icon:before {
@@ -240,11 +239,11 @@
 .ui.heart.rating .icon:before {
   content: '\f004';
 }
-
 /* Active */
 .ui.heart.rating .active.icon:before {
   content: '\f004';
 }
+
 
 /*******************************
          Site Overrides

@@ -1,4 +1,5 @@
 define ["regularjs", "rgl!/html/plugin/app/pager.html"], (Regular, tpl)->
+
   Pager = Regular.extend(
     template: tpl,
   # is called before compile. 一般用来处理数据

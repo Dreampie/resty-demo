@@ -9,9 +9,11 @@
  *
  */
 
+
 /*******************************
             Standard
 *******************************/
+
 
 /*--------------
     Comments
@@ -21,11 +23,9 @@
   margin: 1.5em 0em;
   max-width: 650px;
 }
-
 .ui.comments:first-child {
   margin-top: 0em;
 }
-
 .ui.comments:last-child {
   margin-bottom: 0em;
 }
@@ -43,7 +43,6 @@
   border-top: none;
   line-height: 1.2;
 }
-
 .ui.comments .comment:first-child {
   margin-top: 0em;
   padding-top: 0em;
@@ -57,13 +56,11 @@
   margin: 0em 0em 0.5em 0.5em;
   padding: 1em 0em 1em 1em;
 }
-
 .ui.comments .comment .comments:before {
   position: absolute;
   top: 0px;
   left: 0px;
 }
-
 .ui.comments .comment .comments .comment {
   border: none;
   border-top: none;
@@ -81,7 +78,6 @@
   float: left;
   margin: 0.2em 0em 0em;
 }
-
 .ui.comments .comment img.avatar,
 .ui.comments .comment .avatar img {
   display: block;
@@ -113,11 +109,9 @@
   color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
 }
-
 .ui.comments .comment a.author {
   cursor: pointer;
 }
-
 .ui.comments .comment a.author:hover {
   color: #00b2f3;
 }
@@ -132,12 +126,10 @@
   color: rgba(0, 0, 0, 0.4);
   font-size: 0.875em;
 }
-
 .ui.comments .comment .metadata > * {
   display: inline-block;
   margin: 0em 0.5em 0em 0em;
 }
-
 .ui.comments .comment .metadata > :last-child {
   margin-right: 0em;
 }
@@ -161,18 +153,15 @@
 .ui.comments .comment .actions {
   font-size: 0.875em;
 }
-
 .ui.comments .comment .actions a {
   cursor: pointer;
   display: inline-block;
   margin: 0em 0.75em 0em 0em;
   color: rgba(0, 0, 0, 0.4);
 }
-
 .ui.comments .comment .actions a:last-child {
   margin-right: 0em;
 }
-
 .ui.comments .comment .actions a.active,
 .ui.comments .comment .actions a:hover {
   color: rgba(0, 0, 0, 0.8);
@@ -185,16 +174,15 @@
 .ui.comments > .reply.form {
   margin-top: 1em;
 }
-
 .ui.comments .comment .reply.form {
   width: 100%;
   margin-top: 1em;
 }
-
 .ui.comments .reply.form textarea {
   font-size: 1em;
   height: 12em;
 }
+
 
 /*******************************
             State
@@ -206,9 +194,11 @@
   display: none;
 }
 
+
 /*******************************
            Variations
 *******************************/
+
 
 /*--------------------
         Threaded
@@ -231,11 +221,10 @@
   right: 0px;
   left: auto;
   -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease;
   -webkit-transition-delay: 0.1s;
-  transition-delay: 0.1s;
+          transition-delay: 0.1s;
 }
-
 .ui.minimal.comments .comment > .content:hover > .actions {
   opacity: 1;
 }
@@ -247,22 +236,22 @@
 .ui.small.comments {
   font-size: 0.9em;
 }
-
 .ui.comments {
   font-size: 1em;
 }
-
 .ui.large.comments {
   font-size: 1.1em;
 }
-
 .ui.huge.comments {
   font-size: 1.2em;
 }
 
+
 /*******************************
          Theme Overrides
 *******************************/
+
+
 
 /*******************************
     User Variable Overrides

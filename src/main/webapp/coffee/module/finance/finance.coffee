@@ -46,7 +46,7 @@ define ['regularjs', 'rgl!/html/module/finance/finance.html', '/js/http.js', '/j
           component.$update()
         done: (e, result) ->
         success: (result, textStatus, jqXHR)->
-          component.data.fileState.loading = false
+        component.data.fileState.loading = false
           component.data.rep =
             success: true, error: false
           component.$update()
@@ -103,7 +103,7 @@ define ['regularjs', 'rgl!/html/module/finance/finance.html', '/js/http.js', '/j
 
     bill: (month)->
       component = this
-      param =shopId: component.data.billShopId, state: component.data.billStateId, pageNum: component.data.billPageNum
+      param = shopId: component.data.billShopId, state: component.data.billStateId, pageNum: component.data.billPageNum
       if month && component.data.billShopId
         param.month = month
         component.data.billState =

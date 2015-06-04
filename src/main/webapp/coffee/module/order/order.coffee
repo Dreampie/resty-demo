@@ -1,24 +1,22 @@
-define ['regularjs', 'rgl!/html/module/order/order.html', '/js/http.js', '/js/plugin/app/pager.js',
-        '/js/plugin/app/datepicker.js',
+define ['regularjs', 'rgl!/html/module/order/order.html', '/js/http.js', '/js/plugin/app/pager.js', '/js/plugin/app/datepicker.js',
         'table2csv'], (Regular, tpl, $http, Pager)->
   'use strict'
 
   Regular.extend(
     template: tpl
     data:
-      order_items: ['店铺', '订单号', '用户名', '手机', '金额', '产品', '时间', '是否已对单']
+      order_items: ['店铺','订单号', '用户名', '手机', '金额', '产品','时间', '是否已对单']
       o_tab:
         first: true
       config:
-        format: "yyyymmdd", minViewMode: 0, language: "zh-CN", autoclose: true, todayHighlight: true, clearBtn: true
+        format: "yyyymmdd", minViewMode: 0, language: "zh-CN", autoclose: true,todayHighlight:true,clearBtn:true
       orders: {}
       searchOrder:
         twice: true, loading: false, error: false, serror: false
       shops:
-        [{name: '全部', id: null}, {name: '天猫旗舰店', id: 11}, {name: '京东旗舰店', id: 4}, {name: '一号商城', id: 3},
-          {name: '国美旗舰店', id: 9}, {name: '淘宝集市店', id: 10}]
+        [{name: '全部', id: null},{name: '天猫旗舰店', id: 11}, {name: '京东旗舰店', id: 4}, {name: '一号商城', id: 3}, {name: '国美旗舰店', id: 9}, {name: '淘宝集市店', id: 10}]
       states:
-        [{name: '全部', id: null}, {name: '未对单', id: 0}, {name: '已对单', id: 1}]
+        [{name:'全部',id:null}, {name:'未对单',id:0}, {name:'已对单',id:1}]
     init: ->
       component = this
       component.searchOrder()
@@ -31,11 +29,7 @@ define ['regularjs', 'rgl!/html/module/order/order.html', '/js/http.js', '/js/pl
     searchOrder: (date)->
       component = this
       component.data.searchOrder.loading = true
-      param=
-        shopId: component.data.orderShopId,
-        state: component.data.orderStateId,
-        code: component.data.orderCode,
-        pageNum: component.data.orderPageNum
+      param= shopId: component.data.orderShopId,state:component.data.orderStateId,code:component.data.orderCode, pageNum: component.data.orderPageNum
       if date && date.start && date.end
         if date.start <= date.end
           component.data.searchOrder.error = false
@@ -60,8 +54,7 @@ define ['regularjs', 'rgl!/html/module/order/order.html', '/js/http.js', '/js/pl
       #      if(redirect)
       #        component.$state.go("~", {param: {page: page}})
       component.data.orderPageNum = page
-      component.$refs.datepicker.$emit('select',
-        start: component.$refs.datepicker.data.start, end: component.$refs.datepicker.data.end)
+      component.$refs.datepicker.$emit('select', start: component.$refs.datepicker.data.start, end: component.$refs.datepicker.data.end)
       false
 
     selectOrderState: (state)->

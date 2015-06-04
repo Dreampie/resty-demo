@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Progress
 *******************************/
@@ -24,11 +25,9 @@
   padding: 0.2857em;
   border-radius: 0.2857rem;
 }
-
 .ui.progress:first-child {
   margin: 0em 0em 2.5em;
 }
-
 .ui.progress:last-child {
   margin: 0em 0em 1.5em;
 }
@@ -38,25 +37,20 @@
 .ui.indicating.progress .bar[style*="width: 2"] {
   background-color: #d95c5c;
 }
-
 .ui.indicating.progress .bar[style*="width: 3"] {
   background-color: #d9a65c;
 }
-
 .ui.indicating.progress .bar[style*="width: 4"],
 .ui.indicating.progress .bar[style*="width: 5"] {
   background-color: #e6bb48;
 }
-
 .ui.indicating.progress .bar[style*="width: 6"] {
   background-color: #ddc928;
 }
-
 .ui.indicating.progress .bar[style*="width: 7"],
 .ui.indicating.progress .bar[style*="width: 8"] {
   background-color: #b4d95c;
 }
-
 .ui.indicating.progress .bar[style*="width: 9"],
 .ui.indicating.progress .bar[style*="width: 100"] {
   background-color: #66da81;
@@ -67,25 +61,20 @@
 .ui.indicating.progress[data-percent^="2"] .label {
   color: #d95c5c;
 }
-
 .ui.indicating.progress[data-percent^="3"] .label {
   color: #d9a65c;
 }
-
 .ui.indicating.progress[data-percent^="4"] .label,
 .ui.indicating.progress[data-percent^="5"] .label {
   color: #e6bb48;
 }
-
 .ui.indicating.progress[data-percent^="6"] .label {
   color: #ddc928;
 }
-
 .ui.indicating.progress[data-percent^="7"] .label,
 .ui.indicating.progress[data-percent^="8"] .label {
   color: #b4d95c;
 }
-
 .ui.indicating.progress[data-percent^="9"] .label,
 .ui.indicating.progress[data-percent^="100"] .label {
   color: #66da81;
@@ -103,7 +92,6 @@
 .ui.indicating.progress .bar[style^="width: 9%"] {
   background-color: #d95c5c;
 }
-
 .ui.indicating.progress[data-percent="1"] .label,
 .ui.indicating.progress[data-percent="2"] .label,
 .ui.indicating.progress[data-percent="3"] .label,
@@ -121,9 +109,11 @@
   color: #356e36;
 }
 
+
 /*******************************
             Content
 *******************************/
+
 
 /* Activity Bar */
 .ui.progress .bar {
@@ -135,7 +125,7 @@
   background: #888888;
   border-radius: 0.2857rem;
   -webkit-transition: width 0.3s ease, background-color 0.3s ease;
-  transition: width 0.3s ease, background-color 0.3s ease;
+          transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 /* Percent Complete */
@@ -170,12 +160,14 @@
   margin-top: 0.2em;
   text-align: center;
   -webkit-transition: color 0.4s ease;
-  transition: color 0.4s ease;
+          transition: color 0.4s ease;
 }
+
 
 /*******************************
              States
 *******************************/
+
 
 /*--------------
      Success
@@ -184,13 +176,11 @@
 .ui.progress.success .bar {
   background-color: #5bbd72 !important;
 }
-
 .ui.progress.success .bar,
 .ui.progress.success .bar::after {
   -webkit-animation: none !important;
-  animation: none !important;
+          animation: none !important;
 }
-
 .ui.progress.success > .label {
   color: #356e36;
 }
@@ -202,13 +192,11 @@
 .ui.progress.warning .bar {
   background-color: #f2c037 !important;
 }
-
 .ui.progress.warning .bar,
 .ui.progress.warning .bar::after {
   -webkit-animation: none !important;
-  animation: none !important;
+          animation: none !important;
 }
-
 .ui.progress.warning > .label {
   color: #825c01;
 }
@@ -220,13 +208,11 @@
 .ui.progress.error .bar {
   background-color: #d95c5c !important;
 }
-
 .ui.progress.error .bar,
 .ui.progress.error .bar::after {
   -webkit-animation: none !important;
-  animation: none !important;
+          animation: none !important;
 }
-
 .ui.progress.error > .label {
   color: #912d2b;
 }
@@ -239,7 +225,6 @@
   position: relative;
   min-width: 2em;
 }
-
 .ui.active.progress .bar::after {
   content: '';
   opacity: 0;
@@ -251,9 +236,8 @@
   background: #ffffff;
   border-radius: 0.2857rem;
   -webkit-animation: progress-active 2s ease infinite;
-  animation: progress-active 2s ease infinite;
+          animation: progress-active 2s ease infinite;
 }
-
 @-webkit-keyframes progress-active {
   0% {
     opacity: 0.3;
@@ -264,7 +248,6 @@
     width: 100%;
   }
 }
-
 @keyframes progress-active {
   0% {
     opacity: 0.3;
@@ -283,16 +266,17 @@
 .ui.disabled.progress {
   opacity: 0.35;
 }
-
 .ui.disabled.progress .bar,
 .ui.disabled.progress .bar::after {
   -webkit-animation: none !important;
-  animation: none !important;
+          animation: none !important;
 }
+
 
 /*******************************
            Variations
 *******************************/
+
 
 /*--------------
     Inverted
@@ -302,27 +286,21 @@
   background: rgba(255, 255, 255, 0.05);
   border: none;
 }
-
 .ui.inverted.progress .bar {
   background: #888888;
 }
-
 .ui.inverted.progress .bar > .progress {
   color: #fafafa;
 }
-
 .ui.inverted.progress > .label {
   color: #ffffff;
 }
-
 .ui.inverted.progress.success > .label {
   color: #5bbd72;
 }
-
 .ui.inverted.progress.warning > .label {
   color: #f2c037;
 }
-
 .ui.inverted.progress.error > .label {
   color: #d95c5c;
 }
@@ -331,6 +309,7 @@
     Attached
 ---------------*/
 
+
 /* bottom attached */
 .ui.progress.attached {
   background: transparent;
@@ -338,7 +317,6 @@
   border: none;
   margin: 0em;
 }
-
 .ui.progress.attached,
 .ui.progress.attached .bar {
   display: block;
@@ -347,7 +325,6 @@
   overflow: hidden;
   border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
-
 .ui.progress.attached .bar {
   border-radius: 0em;
 }
@@ -358,7 +335,6 @@
   top: 0px;
   border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
-
 .ui.progress.top.attached .bar {
   border-radius: 0em;
 }
@@ -372,7 +348,6 @@
   bottom: 100%;
   width: 100%;
 }
-
 .ui.segment > .ui.bottom.attached.progress,
 .ui.card > .ui.bottom.attached.progress {
   top: 100%;
@@ -386,71 +361,54 @@
 .ui.black.progress .bar {
   background-color: #1b1c1d;
 }
-
 .ui.blue.progress .bar {
   background-color: #3b83c0;
 }
-
 .ui.green.progress .bar {
   background-color: #5bbd72;
 }
-
 .ui.orange.progress .bar {
   background-color: #e07b53;
 }
-
 .ui.pink.progress .bar {
   background-color: #d9499a;
 }
-
 .ui.purple.progress .bar {
   background-color: #564f8a;
 }
-
 .ui.red.progress .bar {
   background-color: #d95c5c;
 }
-
 .ui.teal.progress .bar {
   background-color: #00b5ad;
 }
-
 .ui.yellow.progress .bar {
   background-color: #f2c61f;
 }
-
 .ui.black.inverted.progress .bar {
   background-color: #333333;
 }
-
 .ui.blue.inverted.progress .bar {
   background-color: #54c8ff;
 }
-
 .ui.green.inverted.progress .bar {
   background-color: #2ecc40;
 }
-
 .ui.orange.inverted.progress .bar {
   background-color: #ff851b;
 }
-
 .ui.pink.inverted.progress .bar {
   background-color: #ff8edf;
 }
-
 .ui.purple.inverted.progress .bar {
   background-color: #cdc6ff;
 }
-
 .ui.red.inverted.progress .bar {
   background-color: #ff695e;
 }
-
 .ui.teal.inverted.progress .bar {
   background-color: #6dffff;
 }
-
 .ui.yellow.inverted.progress .bar {
   background-color: #ffe21f;
 }
@@ -462,46 +420,40 @@
 .ui.tiny.progress {
   font-size: 0.85714286rem;
 }
-
 .ui.tiny.progress .bar {
   height: 0.5em;
 }
-
 .ui.small.progress {
   font-size: 0.92857143rem;
 }
-
 .ui.small.progress .bar {
   height: 1em;
 }
-
 .ui.progress {
   font-size: 1rem;
 }
-
 .ui.progress .bar {
   height: 1.75em;
 }
-
 .ui.large.progress {
   font-size: 1.14285714rem;
 }
-
 .ui.large.progress .bar {
   height: 2.5em;
 }
-
 .ui.big.progress {
   font-size: 1.28571429rem;
 }
-
 .ui.big.progress .bar {
   height: 3.5em;
 }
 
+
 /*******************************
             Progress
 *******************************/
+
+
 
 /*******************************
          Site Overrides

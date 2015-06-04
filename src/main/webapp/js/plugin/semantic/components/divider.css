@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Divider
 *******************************/
@@ -57,7 +58,6 @@
   line-height: 1;
   text-align: center;
 }
-
 .ui.horizontal.divider:before,
 .ui.horizontal.divider:after {
   position: absolute;
@@ -69,12 +69,10 @@
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .ui.horizontal.divider:before {
   margin-left: -webkit-calc(-50% - 1em);
   margin-left: calc(-50% - 1em);
 }
-
 .ui.horizontal.divider:after {
   margin-left: 1em;
 }
@@ -98,7 +96,6 @@
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
 }
-
 .ui.vertical.divider:before,
 .ui.vertical.divider:after {
   position: absolute;
@@ -111,11 +108,9 @@
   height: -webkit-calc(100% - 1rem);
   height: calc(100% - 1rem);
 }
-
 .ui.vertical.divider:before {
   top: -100%;
 }
-
 .ui.vertical.divider:after {
   top: auto;
   bottom: 0px;
@@ -133,7 +128,6 @@
     line-height: 1;
     text-align: center;
   }
-
   .ui.stackable.grid .ui.vertical.divider:before,
   .ui.grid .stackable.row .ui.vertical.divider:before,
   .ui.stackable.grid .ui.vertical.divider:after,
@@ -148,12 +142,10 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
-
   .ui.stackable.grid .ui.vertical.divider:before,
   .ui.grid .stackable.row .ui.vertical.divider:before {
     margin-left: -51%;
   }
-
   .ui.stackable.grid .ui.vertical.divider:after,
   .ui.grid .stackable.row .ui.vertical.divider:after {
     margin-left: 1em;
@@ -192,7 +184,6 @@
 .ui.horizontal.inverted.divider {
   color: #ffffff;
 }
-
 .ui.divider.inverted,
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {

@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Popup
 *******************************/
@@ -18,8 +19,8 @@
   position: absolute;
   top: 0px;
   right: 0px;
-
-  /* Fixes content being squished when inline (moz only) */
+  
+/* Fixes content being squished when inline (moz only) */
   min-width: -moz-max-content;
   z-index: 1900;
   border: 1px solid #cccccc;
@@ -32,7 +33,6 @@
   border-radius: 0.2857rem;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .ui.popup > .header {
   padding: 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -40,11 +40,9 @@
   line-height: 1.2;
   font-weight: bold;
 }
-
 .ui.popup > .header + .content {
   padding-top: 0.5em;
 }
-
 .ui.popup:before {
   position: absolute;
   content: '';
@@ -52,15 +50,17 @@
   height: 0.75em;
   background: #ffffff;
   -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
   z-index: 2;
   box-shadow: 1px 1px 0px 0px #b3b3b3;
 }
 
+
 /*******************************
             Types
 *******************************/
+
 
 /*--------------
      Spacing
@@ -69,19 +69,15 @@
 .ui.popup {
   margin: 0em;
 }
-
 .ui.popup.bottom {
   margin: 0.75em 0em 0em;
 }
-
 .ui.popup.top {
   margin: 0em 0em 0.75em;
 }
-
 .ui.popup.left.center {
   margin: 0em 0.75em 0em 0em;
 }
-
 .ui.popup.right.center {
   margin: 0em 0em 0em 0.75em;
 }
@@ -89,6 +85,7 @@
 /*--------------
      Pointer
 ---------------*/
+
 
 /*--- Below ---*/
 
@@ -100,11 +97,9 @@
   bottom: auto;
   box-shadow: -1px -1px 0px 0px #b3b3b3;
 }
-
 .ui.bottom.left.popup {
   margin-left: 0em;
 }
-
 .ui.bottom.left.popup:before {
   top: -0.325em;
   left: 1em;
@@ -113,11 +108,9 @@
   margin-left: 0em;
   box-shadow: -1px -1px 0px 0px #b3b3b3;
 }
-
 .ui.bottom.right.popup {
   margin-right: 0em;
 }
-
 .ui.bottom.right.popup:before {
   top: -0.325em;
   right: 1em;
@@ -136,11 +129,9 @@
   left: 50%;
   margin-left: -0.325em;
 }
-
 .ui.top.left.popup {
   margin-left: 0em;
 }
-
 .ui.top.left.popup:before {
   bottom: -0.325em;
   left: 1em;
@@ -148,11 +139,9 @@
   right: auto;
   margin-left: 0em;
 }
-
 .ui.top.right.popup {
   margin-right: 0em;
 }
-
 .ui.top.right.popup:before {
   bottom: -0.325em;
   right: 1em;
@@ -183,9 +172,11 @@
   box-shadow: -1px 1px 0px 0px #b3b3b3;
 }
 
+
 /*******************************
             Coupling
 *******************************/
+
 
 /* Immediate Nested Grid */
 .ui.popup > .ui.grid:not(.padded) {
@@ -193,6 +184,7 @@
   width: calc(100% + 1.75rem);
   margin: -0.7rem -0.875rem;
 }
+
 
 /*******************************
             States
@@ -203,15 +195,16 @@
   visibility: hidden;
   z-index: -1;
 }
-
 .ui.animating.popup,
 .ui.visible.popup {
   display: block;
 }
 
+
 /*******************************
             Variations
 *******************************/
+
 
 /*--------------
      Basic
@@ -228,7 +221,6 @@
 .ui.wide.popup {
   max-width: 350px;
 }
-
 .ui[class*="very wide"].popup {
   max-width: 550px;
 }
@@ -246,6 +238,7 @@
      Colors
 ---------------*/
 
+
 /* Inverted colors  */
 .ui.inverted.popup {
   background: #1b1c1d;
@@ -253,12 +246,10 @@
   border: none;
   box-shadow: none;
 }
-
 .ui.inverted.popup .header {
   background-color: none;
   color: #ffffff;
 }
-
 .ui.inverted.popup:before {
   background-color: #1b1c1d;
   box-shadow: none !important;
@@ -279,22 +270,22 @@
 .ui.small.popup {
   font-size: 0.785714rem;
 }
-
 .ui.popup {
   font-size: 0.85714rem;
 }
-
 .ui.large.popup {
   font-size: 1rem;
 }
-
 .ui.huge.popup {
   font-size: 1.14285rem;
 }
 
+
 /*******************************
          Theme Overrides
 *******************************/
+
+
 
 /*******************************
         User Overrides

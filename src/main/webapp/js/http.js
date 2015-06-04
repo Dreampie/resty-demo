@@ -11,12 +11,12 @@
         success = data;
         data = void 0;
       }
-      contentType = 'application/x-www-form-urlencoded; charset=UTF-8';
+      contentType = 'application/json; charset=UTF-8';
       if (data && method !== 'GET') {
         data = JSON.stringify(data);
-        contentType = 'application/json; charset=UTF-8';
       } else if (data) {
         data = $.param(data);
+        contentType = 'application/x-www-form-urlencoded; charset=UTF-8';
       }
       return $.ajax({
         async: async,

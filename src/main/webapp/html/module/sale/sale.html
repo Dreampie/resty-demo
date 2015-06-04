@@ -9,8 +9,7 @@
   <h1 class="ui header">日销售总报表<span style="margin-left: 100px;">{dailys.month}</span></h1>
 
 
-  <app-datepicker state={@(this.$state)} config="{config}" searchState={searchDaily}
-                  on-select={this.searchDaily($event)}></app-datepicker>
+  <app-datepicker state={@(this.$state)} config="{config}" searchState={searchDaily} on-select={this.searchDaily($event)}></app-datepicker>
   <a class="ui button large right floated" tabindex="0" on-click="{this.export('#searchDaily','日销售总报表.csv',$event)}">
     导出
   </a>
@@ -51,8 +50,7 @@
 <div class="ui bottom attached tab segment {o_tab.second?'active':''}">
   <h1 class="ui header">自营日销售总报表<span style="margin-left: 100px;">{shops.month}</span></h1>
 
-  <app-datepicker state={@(this.$state)} config="{config}" searchState={searchShop}
-                  on-select={this.searchShop($event)}></app-datepicker>
+  <app-datepicker state={@(this.$state)} config="{config}"searchState={searchShop} on-select={this.searchShop($event)}></app-datepicker>
   <a class="ui button large right floated" tabindex="0" on-click="{this.export('.searchShop','自营日销售总报表.csv',$event)}">
     导出
   </a>
@@ -99,8 +97,7 @@
 <div class="ui bottom attached tab segment {o_tab.third?'active':''}">
   <h1 class="ui header">月销售总报表<span style="margin-left: 100px;">{monthlys.month}</span></h1>
 
-  <app-datepicker state={@(this.$state)} config="{config}" searchState={searchMonthly}
-                  on-select={this.searchMonthly($event)}></app-datepicker>
+  <app-datepicker state={@(this.$state)} config="{config}"searchState={searchMonthly} on-select={this.searchMonthly($event)}></app-datepicker>
   <a class="ui button large right floated" tabindex="0" on-click="{this.export('#searchMonthly','月销售总报表.csv',$event)}">
     导出
   </a>
@@ -109,9 +106,9 @@
     <tr>
       <th>平台</th>
       {#list order_items as item}
-      {#if item!='日期'}
-      <th>{item}</th>
-      {/if}
+        {#if item!='日期'}
+        <th>{item}</th>
+        {/if}
       {/list}
     </tr>
     </thead>
@@ -143,8 +140,7 @@
 <div class="ui bottom attached tab segment {o_tab.four?'active':''}">
   <h1 class="ui header">月库存总报表<span style="margin-left: 100px;">{stores.month}</span></h1>
 
-  <app-datepicker state={@(this.$state)} config="{config}" searchState={searchStore}
-                  on-select={this.searchStore($event)}></app-datepicker>
+  <app-datepicker state={@(this.$state)} config="{config}"searchState={searchStore} on-select={this.searchStore($event)}></app-datepicker>
   <a class="ui button large right floated" tabindex="0" on-click="{this.export('#searchStore','月库存总报表.csv',$event)}">
     导出
   </a>

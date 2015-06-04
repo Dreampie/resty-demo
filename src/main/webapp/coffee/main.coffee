@@ -5,7 +5,7 @@ libsources =
   version:
     'require-css': '0.1.8-1'
     'jquery': '2.1.3'
-    'Semantic-UI': '1.8.1'
+    'Semantic-UI': '1.12.3'
     'bootstrap-datepicker': '1.4.0'
     'jquery-file-upload': '9.8.1'
 #  cdn:
@@ -35,7 +35,7 @@ libsources =
   cdnpath: (requireid, cdnname)->
     libsources.cdn[requireid] + requireid + '/' + libsources.version[requireid] + '/' + cdnname
 
-  getTime: ->
+  getTime:->
     #日期
     now = new Date(); #获取系统日期
     yy = now.getYear(); #截取年
@@ -44,12 +44,12 @@ libsources =
     #取时间
     hh = now.getHours(); #截取小时
     mm = now.getMinutes(); #截取分钟
-    "" + yy + dd + hh + parseInt(mm / 3)
+    ""+ yy+ dd+ hh+ parseInt(mm/3)
 
 #requirejs  config
 requirejs.config
   baseUrl: '/'
-  urlArgs: 'v=' + libsources.getTime()
+  urlArgs: 'v='+libsources.getTime()
 #all of the webjar configs from their webjars-requirejs.js files
   paths:
     'jquery': libsources.jarpath('jquery', 'jquery.min')
@@ -68,16 +68,13 @@ requirejs.config
   shim:
     'semantic-ui': 'jquery'
     'table2csv': 'jquery'
-    'bootstrap-datepicker': ['jquery', 'css!' + libsources.jarpath('bootstrap-datepicker',
-      'css/bootstrap-datepicker3.standalone.min')]
+    'bootstrap-datepicker': ['jquery', 'css!' + libsources.jarpath('bootstrap-datepicker', 'css/bootstrap-datepicker3.standalone.min')]
     'bootstrap-datepicker.zh-CN': 'bootstrap-datepicker'
     'jquery.ui.widget': 'jquery'
-    'jquery-file-upload': ['jquery.ui.widget',
-                           'css!' + libsources.jarpath('jquery-file-upload', 'css/jquery.fileupload')]
+    'jquery-file-upload': ['jquery.ui.widget', 'css!' + libsources.jarpath('jquery-file-upload', 'css/jquery.fileupload')]
   map:
     '*':
-      'css': libsources.jarpath('require-css',
-        'css') #'webjars/require-css/0.1.4/css' #or whatever the path to require-css is
+      'css': libsources.jarpath('require-css', 'css') #'webjars/require-css/0.1.4/css' #or whatever the path to require-css is
   rgl:
     BEGIN: '{'
     END: '}'
@@ -85,8 +82,7 @@ requirejs.config
 #  waitSeconds: 1
 
 require ['jquery', 'restate', 'regularjs', '/js/http.js', '/js/app.js', '/js/login.js',
-         '/js/module/order/order.js', '/js/module/sale/sale.js', '/js/module/finance/finance.js',
-         '/js/module/setting/setting.js'],
+         '/js/module/order/order.js', '/js/module/sale/sale.js', '/js/module/finance/finance.js', '/js/module/setting/setting.js'],
   ($, restate, Regular, $http, App, Login, Order, Sale, Finance, Setting)->
     'use strict'
 

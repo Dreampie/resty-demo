@@ -61,48 +61,39 @@ td {
   border: 0;
   outline: 0;
 }
-
 html {
   overflow-y: scroll;
 }
-
 body {
   position: relative;
 }
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 caption,
 th,
 td {
   text-align: left;
   font-weight: normal;
 }
-
 form legend {
   display: none;
 }
-
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
   content: "";
 }
-
 blockquote,
 q {
   quotes: "" "";
 }
-
 ol,
 ul {
   list-style: none;
 }
-
 a {
   cursor: pointer;
 }

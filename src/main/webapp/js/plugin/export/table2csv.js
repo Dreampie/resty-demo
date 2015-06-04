@@ -19,25 +19,25 @@ $.fn.table2csv = function (selector, filename) {
   $table.each(function () {
     var $rows = $(this).find('tr');
 
-    // Grab text from table into CSV formatted string
-    csv = csv.length > 1 ? csv + rowDelim : csv;
-    csv = csv + $rows.map(function (i, row) {
-      var $row = $(row);
-      if ($row.attr("csv") != "false") {
-        var $cols = $row.find('td');
-        $cols = $cols.length > 0 ? $cols : $row.find('th');
+      // Grab text from table into CSV formatted string
+      csv = csv.length > 1 ? csv + rowDelim : csv;
+      csv = csv + $rows.map(function (i, row) {
+        var $row = $(row);
+        if($row.attr("csv")!="false") {
+          var $cols = $row.find('td');
+          $cols = $cols.length > 0 ? $cols : $row.find('th');
 
-        return $cols.map(function (j, col) {
-          var $col = $(col);
-          if ($col.attr("csv") != "false") {
-            var text = $col.text();
-            return text.replace('"', '""'); // escape double quotes
-          }
-        }).get().join(tmpColDelim);
-      }
-    }).get().join(tmpRowDelim)
-      .split(tmpRowDelim).join(rowDelim)
-      .split(tmpColDelim).join(colDelim);
+          return $cols.map(function (j, col) {
+            var $col = $(col);
+            if($col.attr("csv")!="false") {
+              var text = $col.text();
+              return text.replace('"', '""'); // escape double quotes
+            }
+          }).get().join(tmpColDelim);
+        }
+      }).get().join(tmpRowDelim)
+        .split(tmpRowDelim).join(rowDelim)
+        .split(tmpColDelim).join(colDelim);
 
   });
   csv = csv + '"';

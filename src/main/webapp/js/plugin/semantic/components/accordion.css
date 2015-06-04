@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Accordion
 *******************************/
@@ -18,7 +19,6 @@
   max-width: 100%;
   font-size: 1em;
 }
-
 .ui.accordion .accordion {
   margin: 1em 0em 0em;
   padding: 0em;
@@ -50,7 +50,6 @@
   margin: 0em;
   padding: 0.5em 0em 1em;
 }
-
 .ui.accordion:not(.styled) .title ~ .content:not(.ui):last-child {
   padding-bottom: 0em;
 }
@@ -67,29 +66,29 @@
   padding: 0em;
   font-size: 1em;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+          transition: transform 0.2s ease, opacity 0.2s ease;
   vertical-align: baseline;
   -webkit-transform: none;
-  -ms-transform: none;
-  transform: none;
+      -ms-transform: none;
+          transform: none;
 }
 
 /*--------------
     Coupling
 ---------------*/
 
+
 /* Menu */
 .ui.accordion.menu .item .title {
   display: block;
   padding: 0em;
 }
-
 .ui.accordion.menu .item .title > .dropdown.icon {
   float: right;
   margin: 0.165em 0em 0em 1em;
   -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 /* Header */
@@ -98,6 +97,7 @@
   margin: 0em 0.25rem 0em 0rem;
 }
 
+
 /*******************************
             States
 *******************************/
@@ -105,19 +105,20 @@
 .ui.accordion .active.title .dropdown.icon,
 .ui.accordion .accordion .active.title .dropdown.icon {
   -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
-
 .ui.accordion.menu .item .active.title > .dropdown.icon {
   -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
+
 
 /*******************************
             Types
 *******************************/
+
 
 /*--------------
      Styled
@@ -126,14 +127,12 @@
 .ui.styled.accordion {
   width: 600px;
 }
-
 .ui.styled.accordion,
 .ui.styled.accordion .accordion {
   border-radius: 0.2857rem;
   background: #ffffff;
   box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(39, 41, 43, 0.15);
 }
-
 .ui.styled.accordion .title,
 .ui.styled.accordion .accordion .title {
   margin: 0em;
@@ -142,9 +141,8 @@
   font-weight: bold;
   border-top: 1px solid rgba(39, 41, 43, 0.15);
   -webkit-transition: background 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, color 0.2s ease;
+          transition: background 0.2s ease, color 0.2s ease;
 }
-
 .ui.styled.accordion > .title:first-child,
 .ui.styled.accordion .accordion .title:first-child {
   border-top: none;
@@ -156,7 +154,6 @@
   margin: 0em;
   padding: 0.5em 1em 1.5em;
 }
-
 .ui.styled.accordion .accordion .content {
   padding: 0em;
   padding: 0.5em 1em 1.5em;
@@ -170,7 +167,6 @@
   background: transparent;
   color: rgba(0, 0, 0, 0.8);
 }
-
 .ui.styled.accordion .accordion .title:hover,
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
@@ -182,15 +178,16 @@
   background: transparent;
   color: rgba(0, 0, 0, 0.8);
 }
-
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
   color: rgba(0, 0, 0, 0.8);
 }
 
+
 /*******************************
             States
 *******************************/
+
 
 /*--------------
      Active
@@ -201,9 +198,11 @@
   display: block;
 }
 
+
 /*******************************
            Variations
 *******************************/
+
 
 /*--------------
      Fluid
@@ -222,6 +221,7 @@
   color: #ffffff;
 }
 
+
 /*******************************
          Theme Overrides
 *******************************/
@@ -239,16 +239,16 @@
   font-family: Accordion;
   line-height: 1;
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+          backface-visibility: hidden;
   font-weight: normal;
   font-style: normal;
   text-align: center;
 }
-
 .ui.accordion .title .dropdown.icon:before,
 .ui.accordion .accordion .title .dropdown.icon:before {
   content: '\f0da' /*rtl:'\f0d9'*/;
 }
+
 
 /*******************************
         User Overrides

@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
              Nag
 *******************************/
@@ -31,19 +32,16 @@
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0em 0em 0.2857rem 0.2857rem;
   -webkit-transition: 0.2s background ease;
-  transition: 0.2s background ease;
+          transition: 0.2s background ease;
 }
-
 a.ui.nag {
   cursor: pointer;
 }
-
 .ui.nag > .title {
   display: inline-block;
   margin: 0em 0.5em;
   color: #ffffff;
 }
-
 .ui.nag > .close.icon {
   cursor: pointer;
   opacity: 0.4;
@@ -54,26 +52,29 @@ a.ui.nag {
   margin: -0.5em 0em 0em;
   color: #ffffff;
   -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease;
 }
+
 
 /*******************************
              States
 *******************************/
+
 
 /* Hover */
 .ui.nag:hover {
   background: #555555;
   opacity: 1;
 }
-
 .ui.nag .close:hover {
   opacity: 1;
 }
 
+
 /*******************************
            Variations
 *******************************/
+
 
 /*--------------
      Static
@@ -112,13 +113,13 @@ a.ui.nag {
   background-color: #f0f0f0;
   color: rgba(0, 0, 0, 0.85);
 }
-
 .ui.inverted.nags .nag .close,
 .ui.inverted.nags .nag .title,
 .ui.inverted.nag .close,
 .ui.inverted.nag .title {
   color: rgba(0, 0, 0, 0.4);
 }
+
 
 /*******************************
            Groups
@@ -127,18 +128,19 @@ a.ui.nag {
 .ui.nags .nag {
   border-radius: 0em !important;
 }
-
 .ui.nags .nag:last-child {
   border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
-
 .ui.bottom.nags .nag:last-child {
   border-radius: 0.2857rem 0.2857rem 0em 0em;
 }
 
+
 /*******************************
          Theme Overrides
 *******************************/
+
+
 
 /*******************************
         User Overrides

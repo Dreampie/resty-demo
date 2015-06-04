@@ -39,7 +39,7 @@
     <bootstrap.version>3.3.2-1</bootstrap.version>
     <requirejs.version>2.1.16</requirejs.version>
     <require-css.version>0.1.8-1</require-css.version>
-    <semantic-ui.version>1.8.1</semantic-ui.version>
+    <semantic-ui.version>1.12.3</semantic-ui.version>
     <datepicker.version>1.4.0</datepicker.version>
     <jquery-file-upload.version>9.8.1</jquery-file-upload.version>
     <jedis.version>2.6.2</jedis.version>

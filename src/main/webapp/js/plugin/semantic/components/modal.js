@@ -113,7 +113,7 @@
               if ($.fn.dimmer === undefined) {
                 module.error(error.dimmer);
                 return;
-              }
+            }
               module.debug('Creating dimmer with settings', dimmerSettings);
               $dimmable = $context.dimmer(dimmerSettings);
               if (settings.detachable) {
@@ -121,7 +121,7 @@
                 $dimmable.dimmer('add content', $module);
               }
               $dimmer = $dimmable.dimmer('get dimmer');
-            },
+          },
             id: function () {
               id = (Math.random().toString(16) + '000000000').substr(2, 8);
               elementNamespace = '.' + id;
@@ -180,7 +180,7 @@
               $toggle
                 .off(eventNamespace)
                 .on('click' + eventNamespace, event)
-              ;
+            ;
             }
             else {
               module.error(error.notFound, selector);
@@ -206,18 +206,18 @@
               if ($(this).is(selector.approve)) {
                 if (settings.onApprove.call(element) !== false) {
                   module.hide();
-                }
-                else {
+              }
+              else {
                   module.verbose('Approve callback returned false cancelling hide');
                 }
               }
               else if ($(this).is(selector.deny)) {
                 if (settings.onDeny.call(element) !== false) {
-                  module.hide();
-                }
+                module.hide();
+              }
                 else {
                   module.verbose('Deny callback returned false cancelling hide');
-                }
+              }
               }
               else {
                 module.hide();
@@ -229,23 +229,23 @@
                 if (module.is.active()) {
                   module.remove.clickaway();
                   if (settings.allowMultiple) {
-                    module.hide();
-                  }
-                  else {
+                  module.hide();
+                }
+                else {
                     module.hideAll();
-                  }
                 }
               }
-            },
+            }
+          },
             debounce: function (method, delay) {
               clearTimeout(module.timer);
               module.timer = setTimeout(method, delay);
-            },
+          },
             keyboard: function (event) {
               var
                 keyCode = event.which,
                 escapeKey = 27
-                ;
+            ;
               if (keyCode == escapeKey) {
                 if (settings.closable) {
                   module.debug('Escape key pressed hiding modal');
@@ -255,12 +255,12 @@
                   module.debug('Escape key pressed, but closable is set to false');
                 }
                 event.preventDefault();
-              }
-            },
+            }
+          },
             resize: function () {
               if ($dimmable.dimmer('is active')) {
                 requestAnimationFrame(module.refresh);
-              }
+            }
             }
           },
 
@@ -324,29 +324,29 @@
                       duration: settings.duration,
                       useFailSafe: true,
                       onComplete: function () {
-                        settings.onVisible.apply(element);
-                        module.add.keyboardShortcuts();
-                        module.save.focus();
-                        module.set.active();
-                        module.set.autofocus();
-                        callback();
-                      }
-                    })
-                  ;
-                }
-                else {
-                  module.debug('Showing modal with javascript');
-                  $module
-                    .fadeIn(settings.duration, settings.easing, function () {
                       settings.onVisible.apply(element);
                       module.add.keyboardShortcuts();
                       module.save.focus();
                       module.set.active();
+                        module.set.autofocus();
                       callback();
-                    })
-                  ;
-                }
+                    }
+                  })
+                ;
               }
+              else {
+                  module.debug('Showing modal with javascript');
+                $module
+                  .fadeIn(settings.duration, settings.easing, function () {
+                    settings.onVisible.apply(element);
+                    module.add.keyboardShortcuts();
+                    module.save.focus();
+                    module.set.active();
+                    callback();
+                  })
+                ;
+              }
+            }
             }
             else {
               module.debug('Modal is already visible');
@@ -385,8 +385,8 @@
                     }
                   })
                 ;
-              }
-              else {
+            }
+            else {
                 module.remove.active();
                 if (!module.othersActive()) {
                   module.hideDimmer();
@@ -398,8 +398,8 @@
                     module.restore.focus();
                     callback();
                   })
-                ;
-              }
+              ;
+            }
             }
           },
 
@@ -442,7 +442,7 @@
               module.hideDimmer();
               $visibleModals
                 .modal('hide modal', callback)
-              ;
+            ;
             }
           },
 
@@ -459,7 +459,7 @@
               module.debug('Hiding other modals', $otherModals);
               $visibleModals
                 .modal('hide modal', callback, true)
-              ;
+            ;
             }
           },
 
@@ -486,29 +486,29 @@
             focus: function () {
               if ($focusedElement && $focusedElement.length > 0) {
                 $focusedElement.focus();
-              }
+            }
             }
           },
 
           remove: {
             active: function () {
               $module.removeClass(className.active);
-            },
+          },
             clickaway: function () {
               if (settings.closable) {
                 $dimmer
                   .off('click' + elementNamespace)
-                ;
-              }
-            },
+              ;
+            }
+          },
             screenHeight: function () {
               if (module.cache.height > module.cache.pageHeight) {
                 module.debug('Removing page height');
                 $body
                   .css('height', '')
                 ;
-              }
-            },
+            }
+          },
             keyboardShortcuts: function () {
               module.verbose('Removing keyboard shortcuts');
               $document
@@ -546,7 +546,7 @@
           is: {
             active: function () {
               return $module.hasClass(className.active);
-            },
+          },
             animating: function () {
               return $module.transition('is supported')
                 ? $module.transition('is animating')
@@ -571,28 +571,28 @@
                   $input = ($autofocus.length > 0)
                     ? $autofocus
                     : $inputs
-                  ;
+              ;
                 $input.first().focus();
-              }
-            },
+            }
+          },
             clickaway: function () {
               if (settings.closable) {
                 $dimmer
                   .on('click' + elementNamespace, module.event.click)
-                ;
-              }
-            },
+              ;
+            }
+          },
             screenHeight: function () {
               if (module.can.fit()) {
                 $body.css('height', '');
-              }
+            }
               else {
                 module.debug('Modal is taller than page content, resizing page height');
                 $body
                   .css('height', module.cache.height + (settings.padding / 2))
                 ;
-              }
-            },
+            }
+          },
             active: function () {
               $module.addClass(className.active);
             },
@@ -605,13 +605,13 @@
                 module.verbose('Modal fits on screen');
                 if (!module.othersActive) {
                   module.remove.scrolling();
-                }
               }
+            }
               else {
                 module.verbose('Modal cannot fit on screen setting to scrolling');
                 module.set.scrolling();
               }
-            },
+          },
             position: function () {
               module.verbose('Centering modal on page', module.cache);
               if (module.can.fit()) {
@@ -621,15 +621,15 @@
                     marginTop: -(module.cache.height / 2)
                   })
                 ;
-              }
-              else {
+            }
+            else {
                 $module
                   .css({
                     marginTop: '',
                     top: $document.scrollTop()
                   })
                 ;
-              }
+            }
             }
           },
 
@@ -660,11 +660,11 @@
             if (settings.debug) {
               if (settings.performance) {
                 module.performance.log(arguments);
-              }
+            }
               else {
                 module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
                 module.debug.apply(console, arguments);
-              }
+            }
             }
           },
           verbose: function () {
@@ -672,10 +672,10 @@
               if (settings.performance) {
                 module.performance.log(arguments);
               }
-              else {
+            else {
                 module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
                 module.verbose.apply(console, arguments);
-              }
+            }
             }
           },
           error: function () {
@@ -703,7 +703,7 @@
               }
               clearTimeout(module.performance.timer);
               module.performance.timer = setTimeout(module.performance.display, 100);
-            },
+          },
             display: function () {
               var
                 title = settings.name + ':',
@@ -722,14 +722,14 @@
                 console.groupCollapsed(title);
                 if (console.table) {
                   console.table(performance);
-                }
-                else {
+              }
+              else {
                   $.each(performance, function (index, data) {
                     console.log(data['Name'] + ': ' + data['Execution Time'] + 'ms');
                   });
-                }
-                console.groupEnd();
               }
+                console.groupEnd();
+            }
               performance = [];
             }
           },
@@ -752,29 +752,29 @@
                   ;
                 if ($.isPlainObject(object[camelCaseValue]) && (depth != maxDepth)) {
                   object = object[camelCaseValue];
-                }
+              }
                 else if (object[camelCaseValue] !== undefined) {
                   found = object[camelCaseValue];
                   return false;
-                }
+              }
                 else if ($.isPlainObject(object[value]) && (depth != maxDepth)) {
                   object = object[value];
-                }
+              }
                 else if (object[value] !== undefined) {
                   found = object[value];
                   return false;
-                }
+              }
                 else {
                   return false;
-                }
+              }
               });
-            }
+          }
             if ($.isFunction(found)) {
               response = found.apply(context, passedArguments);
-            }
+          }
             else if (found !== undefined) {
               response = found;
-            }
+          }
             if ($.isArray(returnedValue)) {
               returnedValue.push(response);
             }
@@ -790,8 +790,8 @@
 
         if (methodInvoked) {
           if (instance === undefined) {
-            module.initialize();
-          }
+          module.initialize();
+        }
           module.invoke(query);
         }
         else {

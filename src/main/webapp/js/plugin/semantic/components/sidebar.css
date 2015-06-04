@@ -9,9 +9,11 @@
  *
  */
 
+
 /*******************************
             Sidebar
 *******************************/
+
 
 /* Sidebar Menu */
 .ui.sidebar {
@@ -19,12 +21,12 @@
   top: 0;
   left: 0;
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+          backface-visibility: hidden;
   -webkit-transition: none;
-  transition: none;
+          transition: none;
   will-change: transform;
   -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
   visibility: hidden;
   -webkit-overflow-scrolling: touch;
   height: 100% !important;
@@ -37,9 +39,9 @@
 /* GPU Layers for Child Elements */
 .ui.sidebar > * {
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+          backface-visibility: hidden;
   -webkit-transform: rotateZ(0deg);
-  transform: rotateZ(0deg);
+          transform: rotateZ(0deg);
 }
 
 /*--------------
@@ -50,35 +52,31 @@
   right: auto;
   left: 0px;
   -webkit-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
 }
-
 .ui.right.sidebar {
   right: 0px !important;
   left: auto !important;
   -webkit-transform: translate3d(100%, 0%, 0);
-  transform: translate3d(100%, 0%, 0);
+          transform: translate3d(100%, 0%, 0);
 }
-
 .ui.top.sidebar,
 .ui.bottom.sidebar {
   width: 100% !important;
   height: auto !important;
   overflow-y: visible !important;
 }
-
 .ui.top.sidebar {
   top: 0px !important;
   bottom: auto !important;
   -webkit-transform: translate3d(0, -100%, 0);
-  transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
 }
-
 .ui.bottom.sidebar {
   top: auto !important;
   bottom: 0px !important;
   -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
 }
 
 /*--------------
@@ -99,9 +97,8 @@ body.pushable {
 /* Page Context */
 .pushable:not(body) {
   -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
-
 .pushable:not(body) > .ui.sidebar,
 .pushable:not(body) > .fixed,
 .pushable:not(body) > .pusher:after {
@@ -115,9 +112,9 @@ body.pushable {
 .pushable > .fixed {
   position: fixed;
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+          backface-visibility: hidden;
   -webkit-transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
+          transition: transform 500ms ease;
   will-change: transform;
   z-index: 101;
 }
@@ -129,18 +126,16 @@ body.pushable {
 .pushable > .pusher {
   position: relative;
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+          backface-visibility: hidden;
   overflow: hidden;
   min-height: 100%;
   -webkit-transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
+          transition: transform 500ms ease;
   z-index: 2;
 }
-
 body.pushable > .pusher {
   background: #f7f7f7;
 }
-
 .pushable > .pusher {
   background: inherit;
 }
@@ -160,7 +155,7 @@ body.pushable > .pusher {
   overflow: hidden;
   opacity: 0;
   -webkit-transition: -webkit-transform 500ms, opacity 500ms;
-  transition: transform 500ms, opacity 500ms;
+          transition: transform 500ms, opacity 500ms;
   will-change: opacity;
   z-index: 1000;
 }
@@ -173,9 +168,11 @@ body.pushable > .pusher {
   border-radius: 0em !important;
 }
 
+
 /*******************************
             States
 *******************************/
+
 
 /*--------------
      Dimmed
@@ -202,7 +199,7 @@ body.pushable > .pusher {
 .ui.visible.sidebar {
   visibility: visible;
   -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 
 /* Shadow Direction */
@@ -210,7 +207,6 @@ body.pushable > .pusher {
 .ui.right.visible.sidebar {
   box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
 }
-
 .ui.top.visible.sidebar,
 .ui.bottom.visible.sidebar {
   box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
@@ -220,25 +216,22 @@ body.pushable > .pusher {
 .ui.visible.left.sidebar ~ .fixed,
 .ui.visible.left.sidebar ~ .pusher {
   -webkit-transform: translate3d(260px, 0, 0);
-  transform: translate3d(260px, 0, 0);
+          transform: translate3d(260px, 0, 0);
 }
-
 .ui.visible.right.sidebar ~ .fixed,
 .ui.visible.right.sidebar ~ .pusher {
   -webkit-transform: translate3d(-260px, 0, 0);
-  transform: translate3d(-260px, 0, 0);
+          transform: translate3d(-260px, 0, 0);
 }
-
 .ui.visible.top.sidebar ~ .fixed,
 .ui.visible.top.sidebar ~ .pusher {
   -webkit-transform: translate3d(0, 36px, 0);
-  transform: translate3d(0, 36px, 0);
+          transform: translate3d(0, 36px, 0);
 }
-
 .ui.visible.bottom.sidebar ~ .fixed,
 .ui.visible.bottom.sidebar ~ .pusher {
   -webkit-transform: translate3d(0, -36px, 0);
-  transform: translate3d(0, -36px, 0);
+          transform: translate3d(0, -36px, 0);
 }
 
 /* opposite sides visible forces content overlay */
@@ -247,7 +240,7 @@ body.pushable > .pusher {
 .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .fixed,
 .ui.visible.right.sidebar ~ .ui.visible.left.sidebar ~ .pusher {
   -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 
 /*--------------
@@ -263,35 +256,34 @@ html.ios {
   -webkit-overflow-scrolling: touch;
 }
 
+
 /*******************************
           Variations
 *******************************/
 
+
 /*--------------
      Width
 ---------------*/
+
 
 /* Left / Right */
 .ui[class*="very thin"].left.sidebar,
 .ui[class*="very thin"].right.sidebar {
   width: 60px;
 }
-
 .ui.thin.left.sidebar,
 .ui.thin.right.sidebar {
   width: 150px;
 }
-
 .ui.left.sidebar,
 .ui.right.sidebar {
   width: 260px;
 }
-
 .ui.wide.left.sidebar,
 .ui.wide.right.sidebar {
   width: 350px;
 }
-
 .ui[class*="very wide"].left.sidebar,
 .ui[class*="very wide"].right.sidebar {
   width: 475px;
@@ -301,59 +293,56 @@ html.ios {
 .ui.visible[class*="very thin"].left.sidebar ~ .fixed,
 .ui.visible[class*="very thin"].left.sidebar ~ .pusher {
   -webkit-transform: translate3d(60px, 0, 0);
-  transform: translate3d(60px, 0, 0);
+          transform: translate3d(60px, 0, 0);
 }
-
 .ui.visible.thin.left.sidebar ~ .fixed,
 .ui.visible.thin.left.sidebar ~ .pusher {
   -webkit-transform: translate3d(150px, 0, 0);
-  transform: translate3d(150px, 0, 0);
+          transform: translate3d(150px, 0, 0);
 }
-
 .ui.visible.wide.left.sidebar ~ .fixed,
 .ui.visible.wide.left.sidebar ~ .pusher {
   -webkit-transform: translate3d(350px, 0, 0);
-  transform: translate3d(350px, 0, 0);
+          transform: translate3d(350px, 0, 0);
 }
-
 .ui.visible[class*="very wide"].left.sidebar ~ .fixed,
 .ui.visible[class*="very wide"].left.sidebar ~ .pusher {
   -webkit-transform: translate3d(475px, 0, 0);
-  transform: translate3d(475px, 0, 0);
+          transform: translate3d(475px, 0, 0);
 }
 
 /* Right Visible */
 .ui.visible[class*="very thin"].right.sidebar ~ .fixed,
 .ui.visible[class*="very thin"].right.sidebar ~ .pusher {
   -webkit-transform: translate3d(-60px, 0, 0);
-  transform: translate3d(-60px, 0, 0);
+          transform: translate3d(-60px, 0, 0);
 }
-
 .ui.visible.thin.right.sidebar ~ .fixed,
 .ui.visible.thin.right.sidebar ~ .pusher {
   -webkit-transform: translate3d(-150px, 0, 0);
-  transform: translate3d(-150px, 0, 0);
+          transform: translate3d(-150px, 0, 0);
 }
-
 .ui.visible.wide.right.sidebar ~ .fixed,
 .ui.visible.wide.right.sidebar ~ .pusher {
   -webkit-transform: translate3d(-350px, 0, 0);
-  transform: translate3d(-350px, 0, 0);
+          transform: translate3d(-350px, 0, 0);
 }
-
 .ui.visible[class*="very wide"].right.sidebar ~ .fixed,
 .ui.visible[class*="very wide"].right.sidebar ~ .pusher {
   -webkit-transform: translate3d(-475px, 0, 0);
-  transform: translate3d(-475px, 0, 0);
+          transform: translate3d(-475px, 0, 0);
 }
+
 
 /*******************************
           Animations
 *******************************/
 
+
 /*--------------
     Overlay
 ---------------*/
+
 
 /* Set-up */
 .ui.overlay.sidebar {
@@ -363,120 +352,114 @@ html.ios {
 /* Initial */
 .ui.left.overlay.sidebar {
   -webkit-transform: translate3d(-100%, 0%, 0);
-  transform: translate3d(-100%, 0%, 0);
+          transform: translate3d(-100%, 0%, 0);
 }
-
 .ui.right.overlay.sidebar {
   -webkit-transform: translate3d(100%, 0%, 0);
-  transform: translate3d(100%, 0%, 0);
+          transform: translate3d(100%, 0%, 0);
 }
-
 .ui.top.overlay.sidebar {
   -webkit-transform: translate3d(0%, -100%, 0);
-  transform: translate3d(0%, -100%, 0);
+          transform: translate3d(0%, -100%, 0);
 }
-
 .ui.bottom.overlay.sidebar {
   -webkit-transform: translate3d(0%, 100%, 0);
-  transform: translate3d(0%, 100%, 0);
+          transform: translate3d(0%, 100%, 0);
 }
 
 /* Animation */
 .animating.ui.overlay.sidebar,
 .ui.visible.overlay.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
+          transition: transform 500ms ease;
 }
 
 /* End - Sidebar */
 .ui.visible.left.overlay.sidebar {
   -webkit-transform: translate3d(0%, 0%, 0);
-  transform: translate3d(0%, 0%, 0);
+          transform: translate3d(0%, 0%, 0);
 }
-
 .ui.visible.right.overlay.sidebar {
   -webkit-transform: translate3d(0%, 0%, 0);
-  transform: translate3d(0%, 0%, 0);
+          transform: translate3d(0%, 0%, 0);
 }
-
 .ui.visible.top.overlay.sidebar {
   -webkit-transform: translate3d(0%, 0%, 0);
-  transform: translate3d(0%, 0%, 0);
+          transform: translate3d(0%, 0%, 0);
 }
-
 .ui.visible.bottom.overlay.sidebar {
   -webkit-transform: translate3d(0%, 0%, 0);
-  transform: translate3d(0%, 0%, 0);
+          transform: translate3d(0%, 0%, 0);
 }
 
 /* End - Pusher */
 .ui.visible.overlay.sidebar ~ .fixed,
 .ui.visible.overlay.sidebar ~ .pusher {
   -webkit-transform: none !important;
-  -ms-transform: none !important;
-  transform: none !important;
+      -ms-transform: none !important;
+          transform: none !important;
 }
 
 /*--------------
       Push
 ---------------*/
 
+
 /* Initial */
 .ui.push.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
+          transition: transform 500ms ease;
   z-index: 102;
 }
 
 /* Sidebar - Initial */
 .ui.left.push.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
 }
-
 .ui.right.push.sidebar {
   -webkit-transform: translate3d(100%, 0, 0);
-  transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
 }
-
 .ui.top.push.sidebar {
   -webkit-transform: translate3d(0%, -100%, 0);
-  transform: translate3d(0%, -100%, 0);
+          transform: translate3d(0%, -100%, 0);
 }
-
 .ui.bottom.push.sidebar {
   -webkit-transform: translate3d(0%, 100%, 0);
-  transform: translate3d(0%, 100%, 0);
+          transform: translate3d(0%, 100%, 0);
 }
 
 /* End */
 .ui.visible.push.sidebar {
   -webkit-transform: translate3d(0%, 0, 0);
-  transform: translate3d(0%, 0, 0);
+          transform: translate3d(0%, 0, 0);
 }
 
 /*--------------
     Uncover
 ---------------*/
 
+
 /* Initial */
 .ui.uncover.sidebar {
   -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
   z-index: 1;
 }
 
 /* End */
 .ui.visible.uncover.sidebar {
   -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
   -webkit-transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
+          transition: transform 500ms ease;
 }
 
 /*--------------
    Slide Along
 ---------------*/
+
 
 /* Initial */
 .ui.slide.along.sidebar {
@@ -486,39 +469,37 @@ html.ios {
 /* Sidebar - Initial */
 .ui.left.slide.along.sidebar {
   -webkit-transform: translate3d(-50%, 0, 0);
-  transform: translate3d(-50%, 0, 0);
+          transform: translate3d(-50%, 0, 0);
 }
-
 .ui.right.slide.along.sidebar {
   -webkit-transform: translate3d(50%, 0, 0);
-  transform: translate3d(50%, 0, 0);
+          transform: translate3d(50%, 0, 0);
 }
-
 .ui.top.slide.along.sidebar {
   -webkit-transform: translate3d(0, -50%, 0);
-  transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
 }
-
 .ui.bottom.slide.along.sidebar {
   -webkit-transform: translate3d(0%, 50%, 0);
-  transform: translate3d(0%, 50%, 0);
+          transform: translate3d(0%, 50%, 0);
 }
 
 /* Animation */
 .ui.animating.slide.along.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
+          transition: transform 500ms ease;
 }
 
 /* End */
 .ui.visible.slide.along.sidebar {
   -webkit-transform: translate3d(0%, 0, 0);
-  transform: translate3d(0%, 0, 0);
+          transform: translate3d(0%, 0, 0);
 }
 
 /*--------------
    Slide Out
 ---------------*/
+
 
 /* Initial */
 .ui.slide.out.sidebar {
@@ -528,99 +509,90 @@ html.ios {
 /* Sidebar - Initial */
 .ui.left.slide.out.sidebar {
   -webkit-transform: translate3d(50%, 0, 0);
-  transform: translate3d(50%, 0, 0);
+          transform: translate3d(50%, 0, 0);
 }
-
 .ui.right.slide.out.sidebar {
   -webkit-transform: translate3d(-50%, 0, 0);
-  transform: translate3d(-50%, 0, 0);
+          transform: translate3d(-50%, 0, 0);
 }
-
 .ui.top.slide.out.sidebar {
   -webkit-transform: translate3d(0%, 50%, 0);
-  transform: translate3d(0%, 50%, 0);
+          transform: translate3d(0%, 50%, 0);
 }
-
 .ui.bottom.slide.out.sidebar {
   -webkit-transform: translate3d(0%, -50%, 0);
-  transform: translate3d(0%, -50%, 0);
+          transform: translate3d(0%, -50%, 0);
 }
 
 /* Animation */
 .ui.animating.slide.out.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
+          transition: transform 500ms ease;
 }
 
 /* End */
 .ui.visible.slide.out.sidebar {
   -webkit-transform: translate3d(0%, 0, 0);
-  transform: translate3d(0%, 0, 0);
+          transform: translate3d(0%, 0, 0);
 }
 
 /*--------------
    Scale Down
 ---------------*/
 
+
 /* Initial */
 .ui.scale.down.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
+          transition: transform 500ms ease;
   z-index: 102;
 }
 
 /* Sidebar - Initial  */
 .ui.left.scale.down.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
 }
-
 .ui.right.scale.down.sidebar {
   -webkit-transform: translate3d(100%, 0, 0);
-  transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
 }
-
 .ui.top.scale.down.sidebar {
   -webkit-transform: translate3d(0%, -100%, 0);
-  transform: translate3d(0%, -100%, 0);
+          transform: translate3d(0%, -100%, 0);
 }
-
 .ui.bottom.scale.down.sidebar {
   -webkit-transform: translate3d(0%, 100%, 0);
-  transform: translate3d(0%, 100%, 0);
+          transform: translate3d(0%, 100%, 0);
 }
 
 /* Pusher - Initial */
 .ui.scale.down.left.sidebar ~ .pusher {
   -webkit-transform-origin: 75% 50%;
-  -ms-transform-origin: 75% 50%;
-  transform-origin: 75% 50%;
+      -ms-transform-origin: 75% 50%;
+          transform-origin: 75% 50%;
 }
-
 .ui.scale.down.right.sidebar ~ .pusher {
   -webkit-transform-origin: 25% 50%;
-  -ms-transform-origin: 25% 50%;
-  transform-origin: 25% 50%;
+      -ms-transform-origin: 25% 50%;
+          transform-origin: 25% 50%;
 }
-
 .ui.scale.down.top.sidebar ~ .pusher {
   -webkit-transform-origin: 50% 75%;
-  -ms-transform-origin: 50% 75%;
-  transform-origin: 50% 75%;
+      -ms-transform-origin: 50% 75%;
+          transform-origin: 50% 75%;
 }
-
 .ui.scale.down.bottom.sidebar ~ .pusher {
   -webkit-transform-origin: 50% 25%;
-  -ms-transform-origin: 50% 25%;
-  transform-origin: 50% 25%;
+      -ms-transform-origin: 50% 25%;
+          transform-origin: 50% 25%;
 }
 
 /* Animation */
 .ui.animating.scale.down > .visible.ui.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
+          transition: transform 500ms ease;
 }
-
 .ui.visible.scale.down.sidebar ~ .pusher,
 .ui.animating.scale.down.sidebar ~ .pusher {
   display: block !important;
@@ -632,18 +604,20 @@ html.ios {
 /* End */
 .ui.visible.scale.down.sidebar {
   -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
-
 .ui.visible.scale.down.sidebar ~ .pusher {
   -webkit-transform: scale(0.75);
-  -ms-transform: scale(0.75);
-  transform: scale(0.75);
+      -ms-transform: scale(0.75);
+          transform: scale(0.75);
 }
+
 
 /*******************************
          Theme Overrides
 *******************************/
+
+
 
 /*******************************
          Site Overrides

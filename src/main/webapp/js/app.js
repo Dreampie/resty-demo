@@ -1,9 +1,9 @@
-(function () {
-  define(['regularjs', 'rgl!/html/app.html', '/js/plugin/app/menu.js'], function (Regular, tpl) {
+(function() {
+  define(['regularjs', 'rgl!/html/app.html', '/js/plugin/app/menu.js'], function(Regular, tpl) {
     'use strict';
     return Regular.extend({
       template: tpl,
-      config: function (data) {
+      config: function(data) {
         var component;
         component = this;
         data.menus = [
@@ -14,10 +14,10 @@
             state: 'app.index'
           }
         ];
-        this.$state.on('login', function () {
+        this.$state.on('login', function() {
           var e, permission, permissions, _i, _len;
           try {
-            permissions = localStorage.getItem("permissions");
+            permissions = localStorage.getItem("permissionValues");
           } catch (_error) {
             e = _error;
           }
@@ -70,7 +70,7 @@
             return component.$update();
           }
         });
-        this.$state.on('logout', function () {
+        this.$state.on('logout', function() {
           component.data.menus = [
             {
               url: '/',

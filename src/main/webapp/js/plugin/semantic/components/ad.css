@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
          Advertisement
 *******************************/
@@ -18,15 +19,12 @@
   overflow: hidden;
   margin: 1em 0em;
 }
-
 .ui.ad:first-child {
   margin: 0em;
 }
-
 .ui.ad:last-child {
   margin: 0em;
 }
-
 .ui.ad iframe {
   margin: 0em;
   padding: 0em;
@@ -37,6 +35,7 @@
 /*--------------
      Common
 ---------------*/
+
 
 /* Leaderboard */
 .ui.leaderboard.ad {
@@ -66,6 +65,7 @@
      Square
 ---------------*/
 
+
 /* Square */
 .ui.square.ad {
   width: 250px;
@@ -81,6 +81,7 @@
 /*--------------
     Rectangle
 ---------------*/
+
 
 /* Small Rectangle */
 .ui[class*="small rectangle"].ad {
@@ -102,12 +103,10 @@
   width: 120px;
   height: 90px;
 }
-
 .ui[class*="square button"].ad {
   width: 125px;
   height: 125px;
 }
-
 .ui[class*="small button"].ad {
   width: 120px;
   height: 60px;
@@ -116,6 +115,7 @@
 /*--------------
    Skyscrapers
 ---------------*/
+
 
 /* Skyscraper */
 .ui.skyscraper.ad {
@@ -131,6 +131,7 @@
 /*--------------
      Banners
 ---------------*/
+
 
 /* Banner */
 .ui.banner.ad {
@@ -160,6 +161,7 @@
     Boards
 ---------------*/
 
+
 /* Leaderboard */
 .ui[class*="large leaderboard"].ad {
   width: 970px;
@@ -176,6 +178,7 @@
     Panorama
 ---------------*/
 
+
 /* Panorama */
 .ui.panorama.ad {
   width: 980px;
@@ -186,6 +189,7 @@
      Netboard
 ---------------*/
 
+
 /* Netboard */
 .ui.netboard.ad {
   width: 580px;
@@ -195,6 +199,7 @@
 /*--------------
      Mobile
 ---------------*/
+
 
 /* Large Mobile Banner */
 .ui[class*="large mobile banner"].ad {
@@ -208,20 +213,22 @@
   height: 50px;
 }
 
+
 /*******************************
              Types
 *******************************/
+
 
 /* Mobile Sizes */
 .ui.mobile.ad {
   display: none;
 }
-
 @media only screen and (max-width: 767px) {
   .ui.mobile.ad {
     display: block;
   }
 }
+
 
 /*******************************
            Variations
@@ -231,12 +238,10 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 .ui.test.ad {
   position: relative;
   background: #333333;
 }
-
 .ui.test.ad:after {
   position: absolute;
   top: 50%;
@@ -244,25 +249,26 @@
   width: 100%;
   text-align: center;
   -webkit-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
   content: 'Ad';
   color: #ffffff;
   font-size: 1em;
   font-weight: bold;
 }
-
 .ui.mobile.test.ad:after {
   font-size: 0.85714em;
 }
-
 .ui.test.ad[data-text]:after {
   content: attr(data-text);
 }
 
+
 /*******************************
          Theme Overrides
 *******************************/
+
+
 
 /*******************************
     User Variable Overrides

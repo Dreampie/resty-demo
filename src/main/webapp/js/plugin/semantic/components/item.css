@@ -9,9 +9,11 @@
  *
  */
 
+
 /*******************************
             Standard
 *******************************/
+
 
 /*--------------
       Item
@@ -29,10 +31,9 @@
   border-radius: 0rem;
   box-shadow: none;
   -webkit-transition: box-shadow 0.2s ease;
-  transition: box-shadow 0.2s ease;
+          transition: box-shadow 0.2s ease;
   z-index: '';
 }
-
 .ui.items > .item a {
   cursor: pointer;
 }
@@ -44,11 +45,9 @@
 .ui.items {
   margin: 1.5em 0em;
 }
-
 .ui.items:first-child {
   margin-top: 0em !important;
 }
-
 .ui.items:last-child {
   margin-bottom: 0em !important;
 }
@@ -60,7 +59,6 @@
 .ui.items > .item {
   min-width: 100%;
 }
-
 .ui.items > .item:after {
   display: block;
   content: ' ';
@@ -69,11 +67,9 @@
   overflow: hidden;
   visibility: hidden;
 }
-
 .ui.items > .item:first-child {
   margin-top: 0em;
 }
-
 .ui.items > .item:last-child {
   margin-bottom: 0em;
 }
@@ -91,7 +87,6 @@
   max-height: '';
   vertical-align: top;
 }
-
 .ui.items > .item > .image > img {
   display: block;
   width: 100%;
@@ -99,7 +94,6 @@
   border-radius: 0.125rem;
   border: none;
 }
-
 .ui.items > .item > .image:only-child > img {
   border-radius: 0rem;
 }
@@ -118,7 +112,6 @@
   border: none;
   border-radius: 0em;
 }
-
 .ui.items > .item > .content:after {
   display: block;
   content: ' ';
@@ -127,7 +120,6 @@
   overflow: hidden;
   visibility: hidden;
 }
-
 .ui.items > .item > .image + .content {
   width: 100%;
   display: table-cell;
@@ -135,7 +127,6 @@
   vertical-align: top;
   padding-left: 1.5em;
 }
-
 .ui.items > .item > .content > .header {
   display: block;
   margin: -0.165em 0em 0em;
@@ -156,7 +147,6 @@
 .ui.items > .item [class*="left floated"] {
   float: left;
 }
-
 .ui.items > .item [class*="right floated"] {
   float: right;
 }
@@ -169,7 +159,6 @@
   vertical-align: middle;
   width: '';
 }
-
 .ui.items > .item img.avatar,
 .ui.items > .item .avatar img {
   width: '';
@@ -196,7 +185,6 @@
 .ui.items > .item > .content p {
   margin: 0em 0em 0.5em;
 }
-
 .ui.items > .item > .content p:last-child {
   margin-bottom: 0em;
 }
@@ -210,15 +198,12 @@
   line-height: 1em;
   color: rgba(0, 0, 0, 0.6);
 }
-
 .ui.items > .item .meta * {
   margin-right: 0.3em;
 }
-
 .ui.items > .item .meta :last-child {
   margin-right: 0em;
 }
-
 .ui.items > .item .meta [class*="right floated"] {
   margin-right: 0em;
   margin-left: 0.3em;
@@ -228,13 +213,13 @@
       Links
 ---------------*/
 
+
 /* Generic */
 .ui.items > .item > .content a:not(.ui) {
   color: '';
   -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+          transition: color 0.2s ease;
 }
-
 .ui.items > .item > .content a:not(.ui):hover {
   color: '';
 }
@@ -243,7 +228,6 @@
 .ui.items > .item > .content > a.header {
   color: rgba(0, 0, 0, 0.85);
 }
-
 .ui.items > .item > .content > a.header:hover {
   color: #00b2f3;
 }
@@ -252,7 +236,6 @@
 .ui.items > .item .meta > a:not(.ui) {
   color: rgba(0, 0, 0, 0.4);
 }
-
 .ui.items > .item .meta > a:not(.ui):hover {
   color: rgba(0, 0, 0, 0.8);
 }
@@ -261,40 +244,39 @@
      Labels
 ---------------*/
 
+
 /*-----Star----- */
+
 
 /* Icon */
 .ui.items > .item > .content .favorite.icon {
   cursor: pointer;
   opacity: 0.75;
   -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+          transition: color 0.2s ease;
 }
-
 .ui.items > .item > .content .favorite.icon:hover {
   opacity: 1;
   color: #ffb70a;
 }
-
 .ui.items > .item > .content .active.favorite.icon {
   color: #ffe623;
 }
 
 /*-----Like----- */
 
+
 /* Icon */
 .ui.items > .item > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
   -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+          transition: color 0.2s ease;
 }
-
 .ui.items > .item > .content .like.icon:hover {
   opacity: 1;
   color: #ff2733;
 }
-
 .ui.items > .item > .content .active.like.icon {
   color: #ff2733;
 }
@@ -315,18 +297,15 @@
   color: rgba(0, 0, 0, 0.4);
   box-shadow: none;
   -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+          transition: color 0.2s ease;
   border-top: none;
 }
-
 .ui.items > .item .extra > * {
   margin: 0.25rem 0.5rem 0.25rem 0em;
 }
-
 .ui.items > .item .extra > [class*="right floated"] {
   margin: 0.25rem 0em 0.25rem 0.5rem;
 }
-
 .ui.items > .item .extra:after {
   display: block;
   content: ' ';
@@ -336,9 +315,11 @@
   visibility: hidden;
 }
 
+
 /*******************************
           Responsive
 *******************************/
+
 
 /* Default Image Width */
 .ui.items > .item > .image:not(.ui) {
@@ -350,11 +331,9 @@
   .ui.items > .item {
     margin: 1em 0em;
   }
-
   .ui.items > .item > .image:not(.ui) {
     width: 150px;
   }
-
   .ui.items > .item > .image + .content {
     display: block;
     padding: 0em 0em 0em 1em;
@@ -366,29 +345,28 @@
   .ui.items > .item {
     margin: 2em 0em;
   }
-
   .ui.items > .item > .image {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
-
   .ui.items > .item > .image,
   .ui.items > .item > .image > img {
     max-width: 100% !important;
     width: auto !important;
     max-height: 250px !important;
   }
-
   .ui.items > .item > .image + .content {
     display: block;
     padding: 1.5em 0em 0em;
   }
 }
 
+
 /*******************************
            Variations
 *******************************/
+
 
 /*-------------------
        Aligned
@@ -397,11 +375,9 @@
 .ui.items > .item > .image + [class*="top aligned"].content {
   vertical-align: top;
 }
-
 .ui.items > .item > .image + [class*="middle aligned"].content {
   vertical-align: middle;
 }
-
 .ui.items > .item > .image + [class*="bottom aligned"].content {
   vertical-align: bottom;
 }
@@ -413,7 +389,6 @@
 .ui.relaxed.items > .item {
   margin: 1.5em 0em;
 }
-
 .ui[class*="very relaxed"].items > .item {
   margin: 2em 0em;
 }
@@ -427,13 +402,11 @@
   margin: 0em;
   padding: 1em 0em;
 }
-
 .ui.divided.items > .item:first-child {
   border-top: none;
   margin-top: 0em !important;
   padding-top: 0em !important;
 }
-
 .ui.divided.items > .item:last-child {
   margin-bottom: 0em !important;
   padding-bottom: 0em !important;
@@ -444,7 +417,6 @@
   margin: 0em;
   padding: 1.5em 0em;
 }
-
 .ui[class*="very relaxed"].divided.items > .item {
   margin: 0em;
   padding: 2em 0em;
@@ -458,7 +430,6 @@
 .ui.link.items > .item:hover {
   cursor: pointer;
 }
-
 .ui.items a.item:hover .content .header,
 .ui.link.items > .item:hover .content .header {
   color: #00b2f3;
@@ -472,9 +443,12 @@
   font-size: 1em;
 }
 
+
 /*******************************
          Theme Overrides
 *******************************/
+
+
 
 /*******************************
     User Variable Overrides

@@ -1,12 +1,10 @@
-define ['regularjs', 'rgl!/html/module/sale/sale.html', '/js/http.js', '/js/plugin/app/datepicker.js',
-        'table2csv'], (Regular, tpl, $http)->
+define ['regularjs', 'rgl!/html/module/sale/sale.html', '/js/http.js', '/js/plugin/app/datepicker.js', 'table2csv'], (Regular, tpl, $http)->
   'use strict'
 
   Regular.extend(
     template: tpl
     data:
-      order_items: ['日期', '订单数量', '销售数量', '销售额', '成本', '毛利', '毛利率', '运费', '用户运费', '包材(1.8/提)', '平台扣点', '销售毛利', '销售毛利率',
-                    '税费', '经营费用摊销10%', '净利润', '净利率', '客单价']
+      order_items: ['日期', '订单数量', '销售数量', '销售额', '成本', '毛利', '毛利率', '运费', '用户运费', '包材(1.8/提)', '平台扣点', '销售毛利', '销售毛利率', '税费', '经营费用摊销10%', '净利润', '净利率', '客单价']
       store_items: ['产品', '编码', '入库单数', '出库单数', '月初库存', '入库', '出库', '月末库存', '成本价', '库存货值']
       o_tab:
         first: true, second: false, third: false, four: false
@@ -49,7 +47,7 @@ define ['regularjs', 'rgl!/html/module/sale/sale.html', '/js/http.js', '/js/plug
           sales: 0,
           cost: 0,
           profit: 0,
-          profit_rate: 0,
+          profit_rate:0,
           freight: 0,
           in_freight: 0,
           packing: 0,
@@ -58,7 +56,7 @@ define ['regularjs', 'rgl!/html/module/sale/sale.html', '/js/http.js', '/js/plug
           sales_profit: 0,
           amortization: 0,
           net_profit: 0,
-          order_price: 0
+          order_price:0
         }
         for data in datas
           total.order_count += data.order_count

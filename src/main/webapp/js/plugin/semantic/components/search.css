@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
              Search
 *******************************/
@@ -16,7 +17,6 @@
 .ui.search {
   position: relative;
 }
-
 .ui.search > .prompt {
   margin: 0em;
   outline: none;
@@ -35,7 +35,6 @@
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
-
 .ui.search .prompt {
   border-radius: 500rem;
 }
@@ -79,7 +78,6 @@
   line-height: 1.33;
   border-bottom: 1px solid rgba(39, 41, 43, 0.15);
 }
-
 .ui.search > .results .result:last-child {
   border-bottom: none;
 }
@@ -93,7 +91,6 @@
   height: 3em;
   border-radius: 0.25em;
 }
-
 .ui.search > .results .result .image img {
   display: block;
   width: auto;
@@ -107,20 +104,17 @@
 .ui.search > .results .result .image + .content {
   margin: 0em 6em 0em 0em;
 }
-
 .ui.search > .results .result .title {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.85);
 }
-
 .ui.search > .results .result .description {
   margin-top: 0em;
   font-size: 0.9285em;
   color: rgba(0, 0, 0, 0.4);
 }
-
 .ui.search > .results .result .price {
   float: right;
   color: #5bbd72;
@@ -133,14 +127,12 @@
 .ui.search > .results > .message {
   padding: 1em 1em;
 }
-
 .ui.search > .results > .message .header {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.1428em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
-
 .ui.search > .results > .message .description {
   margin-top: 0.25rem;
   font-size: 1em;
@@ -158,9 +150,11 @@
   text-align: center;
 }
 
+
 /*******************************
             States
 *******************************/
+
 
 /*--------------------
        Loading
@@ -177,7 +171,6 @@
   border-radius: 500rem;
   border: 0.2em solid rgba(0, 0, 0, 0.1);
 }
-
 .ui.loading.search .input > .icon:after {
   position: absolute;
   content: '';
@@ -205,7 +198,6 @@
 .ui.category.search > .results .category .result:hover {
   background: #fafafa;
 }
-
 .ui.search .action:hover {
   background: #e0e0e0;
 }
@@ -217,11 +209,9 @@
 .ui.search > .results .category.active {
   background: #f0f0f0;
 }
-
 .ui.search > .results .category.active > .name {
   color: rgba(0, 0, 0, 0.8);
 }
-
 .ui.search > .results .result.active,
 .ui.category.search > .results .category .result.active {
   position: relative;
@@ -229,11 +219,9 @@
   background: #f0f0f0;
   box-shadow: 3px 0px 3px 0px rgba(39, 41, 43, 0.15);
 }
-
 .ui.search > .results .result.active .title {
   color: rgba(0, 0, 0, 0.85);
 }
-
 .ui.search > .results .result.active .description {
   color: rgba(0, 0, 0, 0.85);
 }
@@ -258,7 +246,6 @@
   -webkit-transition: background 0.2s ease, border-color 0.2s ease;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
-
 .ui.category.search > .results .category:last-child {
   border-bottom: none;
 }
@@ -272,7 +259,6 @@
   -webkit-transition: background 0.2s ease, border-color 0.2s ease;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
-
 .ui.category.search > .results .category .result:last-child {
   border-bottom: none;
 }
@@ -302,7 +288,6 @@
   right: auto;
   left: 0%;
 }
-
 .ui[class*="right aligned"].search > .results {
   right: 0%;
   left: auto;
@@ -323,7 +308,6 @@
 .ui.search {
   font-size: 1em;
 }
-
 .ui.large.search {
   font-size: 1.1em;
 }

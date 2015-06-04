@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
            Breadcrumb
 *******************************/
@@ -18,18 +19,18 @@
   display: inline-block;
   vertical-align: middle;
 }
-
 .ui.breadcrumb:first-child {
   margin-top: 0em;
 }
-
 .ui.breadcrumb:last-child {
   margin-bottom: 0em;
 }
 
+
 /*******************************
           Content
 *******************************/
+
 
 /* Divider */
 .ui.breadcrumb .divider {
@@ -45,7 +46,6 @@
 .ui.breadcrumb a {
   color: #009fda;
 }
-
 .ui.breadcrumb a:hover {
   color: #00b2f3;
 }
@@ -60,7 +60,6 @@
 .ui.breadcrumb a.section {
   cursor: pointer;
 }
-
 .ui.breadcrumb .section {
   display: inline-block;
   margin: 0em;
@@ -73,6 +72,7 @@
   padding: 0.5em 1em;
 }
 
+
 /*******************************
             States
 *******************************/
@@ -81,6 +81,7 @@
   font-weight: bold;
 }
 
+
 /*******************************
            Variations
 *******************************/
@@ -88,38 +89,34 @@
 .ui.mini.breadcrumb {
   font-size: 0.65em;
 }
-
 .ui.tiny.breadcrumb {
   font-size: 0.7em;
 }
-
 .ui.small.breadcrumb {
   font-size: 0.75em;
 }
-
 .ui.breadcrumb {
   font-size: 1em;
 }
-
 .ui.large.breadcrumb {
   font-size: 1.1em;
 }
-
 .ui.big.breadcrumb {
   font-size: 1.05em;
 }
-
 .ui.huge.breadcrumb {
   font-size: 1.3em;
 }
-
 .ui.massive.breadcrumb {
   font-size: 1.5em;
 }
 
+
 /*******************************
          Theme Overrides
 *******************************/
+
+
 
 /*******************************
          Site Overrides

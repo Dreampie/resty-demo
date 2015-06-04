@@ -9,4 +9,5 @@ import cn.dreampie.orm.annotation.Table;
 @Table(name = "sec_role_permission", cached = true)
 public class RolePermission extends Model<RolePermission> {
   public static final RolePermission dao = new RolePermission();
+
 }
