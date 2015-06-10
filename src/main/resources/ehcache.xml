@@ -11,7 +11,7 @@
       diskPersistent="false"
       diskExpiryThreadIntervalSeconds="120"/>
 
-  <cache name="_premission"
+  <cache name="_credential"
          maxElementsInMemory="10000"
          eternal="false"
          timeToIdleSeconds="1200"
@@ -19,4 +19,12 @@
          diskPersistent="false"
          diskExpiryThreadIntervalSeconds="120"/>
 
+  <!--session 缓存存活30天(因为rememberMe最大30天) 程序自动清理过期的数据-->
+  <cache name="_session"
+         maxElementsInMemory="10000"
+         eternal="true"
+         timeToLiveSeconds="2592000"
+         overflowToDisk="true"
+         diskPersistent="true"
+         diskExpiryThreadIntervalSeconds="120"/>
 </ehcache>
