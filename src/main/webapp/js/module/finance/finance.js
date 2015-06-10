@@ -96,14 +96,11 @@
             return component.$update();
           },
           done: function(e, result) {},
-          success: function(result, textStatus, jqXHR) {
-            component.data.fileState.loading = false;
-            component.data.rep = {
-              success: true,
-              error: false
-            };
-            return component.$update();
-          },
+          success: function(result, textStatus, jqXHR) {}
+        }, component.data.fileState.loading = false, component.data.rep = {
+          success: true,
+          error: false
+        }, component.$update(), {
           error: function(jqXHR, textStatus, errorThrown) {
             component.data.fileState.loading = false;
             component.data.rep = {
