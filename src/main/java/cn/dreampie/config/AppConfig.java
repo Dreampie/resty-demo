@@ -33,7 +33,7 @@ public class AppConfig extends Config {
 
   public void configInterceptor(InterceptorLoader interceptorLoader) {
     //权限拦截器 limit 为最大登录session数
-    interceptorLoader.add(new SecurityInterceptor(2, new MyAuthenticateService()));
+    interceptorLoader.add(new SecurityInterceptor(new MyAuthenticateService()));
     //事务的拦截器 @Transaction
     interceptorLoader.add(new TransactionInterceptor());
   }

@@ -33,7 +33,7 @@ public class UserResource extends ApiResource {
   @POST
   public boolean save(User user) {
     String password = user.get("password");
-    user.set("password", DefaultPasswordService.instance().hash(password));
+    user.set("password", DefaultPasswordService.instance().crypto(password));
 //    Role role = user.<Role>get("role");
 //    if (role.get("id") == null) {
 //      role.save();
