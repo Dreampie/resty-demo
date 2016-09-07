@@ -2,8 +2,8 @@ package cn.dreampie.resource.user;
 
 import cn.dreampie.resource.ApiResource;
 import cn.dreampie.resource.user.model.Role;
-import cn.dreampie.route.core.annotation.API;
-import cn.dreampie.route.core.annotation.GET;
+import cn.dreampie.route.annotation.API;
+import cn.dreampie.route.annotation.GET;
 
 import java.util.List;
 

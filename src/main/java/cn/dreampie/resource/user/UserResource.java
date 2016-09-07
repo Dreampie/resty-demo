@@ -4,7 +4,7 @@ import cn.dreampie.orm.transaction.Transaction;
 import cn.dreampie.resource.ApiResource;
 import cn.dreampie.resource.user.model.Role;
 import cn.dreampie.resource.user.model.User;
-import cn.dreampie.route.core.annotation.*;
+import cn.dreampie.route.annotation.*;
 import cn.dreampie.security.DefaultPasswordService;
 
 import java.util.Date;

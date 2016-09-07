@@ -18,7 +18,7 @@ public class AppConfig extends Config {
   }
 
   public void configResource(ResourceLoader resourceLoader) {
-//设置resource的目录  减少启动扫描目录
+    //设置resource的目录  减少启动扫描目录
     resourceLoader.addIncludePackages("cn.dreampie.resource");
   }
 

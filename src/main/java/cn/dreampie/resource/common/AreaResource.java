@@ -2,8 +2,8 @@ package cn.dreampie.resource.common;
 
 import cn.dreampie.resource.ApiResource;
 import cn.dreampie.resource.common.model.Area;
-import cn.dreampie.route.core.annotation.API;
-import cn.dreampie.route.core.annotation.GET;
+import cn.dreampie.route.annotation.API;
+import cn.dreampie.route.annotation.GET;
 
 import java.util.List;
 
