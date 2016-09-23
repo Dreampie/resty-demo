@@ -24,7 +24,9 @@ Resty-demo 是以Resty作为服务端接口，regularjs作为前端构建的交�
 
 3.运行resty-demo下的pom.xml->flyway-maven-plugin:clean->flyway-maven-plugin:migration，自动根具resources下db目录下的数据库文件生成数据库表结构和数据
 
-4.运行resty-demo下的pom.xml->tomcat7-maven-plugin:run,demo
+4.运行resty-demo下的pom.xml->tomcat-maven-plugin:run
+
+如果war在tomcat下部署,不要添加contextPath
 
 提醒:推荐idea作为开发ide，maven做项目管理，git做源码管理
 
